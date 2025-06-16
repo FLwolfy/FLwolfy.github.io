@@ -776,6 +776,10 @@ a {
   background: url("/img/新浪微博.png") center no-repeat #ecc260;
   background-size: 80%;
 }
+#header .header-nav .social .Github {
+  background: url("/img/Github.png") center no-repeat #cecee0;
+  background-size: 105%;
+}
 #header .header-nav .social .知乎 {
   background: url("/img/知乎.png") center no-repeat #0078d8;
   background-size: 90%;
@@ -842,6 +846,10 @@ a {
 }
 #header .header-nav .social .Quora {
   background: url("/img/Quora.png") center no-repeat #b92b27;
+  background-size: 103%;
+}
+#header .header-nav .social .X {
+  background: url("/img/X.png") center no-repeat #cecee0;
   background-size: 103%;
 }
 #header .header-nav .social .GitHub {
@@ -1037,6 +1045,19 @@ color
 }
 .post-list li:hover a {
   color: #88acdb;
+}
+.ui-tooltip {
+  padding: 6px;
+  max-width: 30em;
+  -webkit-box-shadow: 0 0 0.8em rgba(0,0,0,0.6);
+  box-shadow: 0 0 0.8em rgba(0,0,0,0.6);
+  color: #fff;
+  font-family: "Lucida Grande", Verdana, "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", "Hiragino Sans GB", "WenQuanYi Micro Hei", sans-serif;
+  font-size: 0.9em;
+  background: rgba(0,0,0,0.65);
+}
+body .ui-tooltip {
+  border: 1px solid #fff;
 }
 .pace .pace-progress {
   background: #77b6ff;
