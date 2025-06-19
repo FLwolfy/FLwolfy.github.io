@@ -50,24 +50,28 @@ NexT.motion.middleWares = {
       });
     }
 
-    pushToSequence('.column');
-    CONFIG.scheme === 'Mist' && getMistLineSettings('.logo-line');
-    CONFIG.scheme === 'Muse' && pushToSequence('.custom-logo-image');
-    pushToSequence('.site-title');
-    pushToSequence('.site-brand-container .toggle', true);
-    pushToSequence('.site-subtitle');
-    (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') && pushToSequence('.custom-logo-image');
-
-    const menuItemTransition = CONFIG.motion.transition.menu_item;
-    if (menuItemTransition) {
-      document.querySelectorAll('.menu-item').forEach(targets => {
+    function animate(animation, elements, sequenceQueue = false) {
+      if (!animation) return;
+      elements.forEach(targets => {
         sequence.push({
           targets,
-          complete: () => targets.classList.add('animated', menuItemTransition),
-          deltaT  : '-=200'
+          complete: () => {
+            targets.classList.add('animated', animation);
+            targets.style.opacity = 1;
+          },
+          deltaT  : sequenceQueue ? '-=200' : '-=0'
         });
       });
     }
+
+    animate(CONFIG.motion.transition.column, document.querySelectorAll('.column'));
+    CONFIG.scheme === 'Mist' && getMistLineSettings('.logo-line');
+    CONFIG.scheme === 'Muse' && animate(CONFIG.motion.transition.site_logo, document.querySelectorAll('.custom-logo-image'));
+    pushToSequence('.site-title');
+    pushToSequence('.site-brand-container .toggle', true);
+    pushToSequence('.site-subtitle');
+    (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') && animate(CONFIG.motion.transition.site_logo, document.querySelectorAll('.custom-logo-image'));
+    animate(CONFIG.motion.transition.menu_item, document.querySelectorAll('.menu-item'));
 
     return sequence;
   },
@@ -84,7 +88,7 @@ NexT.motion.middleWares = {
 
   postList() {
     const sequence = [];
-    const { post_block, post_header, post_body, coll_header } = CONFIG.motion.transition;
+    const { post_block, post_header, post_body, coll_header} = CONFIG.motion.transition;
 
     function animate(animation, elements) {
       if (!animation) return;
@@ -97,6 +101,7 @@ NexT.motion.middleWares = {
       });
     }
 
+    animate(post_block, document.querySelectorAll('.main-inner'));
     document.querySelectorAll('.post-block').forEach(targets => {
       sequence.push({
         targets,
