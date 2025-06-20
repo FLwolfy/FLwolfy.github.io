@@ -1,6 +1,6 @@
 function initTagCloud() {
   const canvas = document.getElementById('tagcanvas');
-  const tags = document.getElementById('tagcloud-raw');
+  const tags = document.getElementById('tag-cloud-tags-3D');
   if (!canvas || !tags) return;
 
   const container = canvas.parentElement;
@@ -8,26 +8,13 @@ function initTagCloud() {
   canvas.width = width;
   canvas.height = width * 0.7;
 
-  // 设置标签字体颜色为荧光橘色，带发光阴影
-  tags.querySelectorAll('a.tag-cloud').forEach(tag => {
-    tag.style.fontWeight = 'bold';
-    tag.style.color = '#ff6f00';  // 荧光橘色
-    tag.style.textShadow = '0 0 8px #ff6f00, 0 0 12px #ff9900';
-  });
-
   try {
     TagCanvas.Delete('tagcanvas');
-    TagCanvas.Start('tagcanvas', 'tagcloud-raw', {
+    TagCanvas.Start('tagcanvas', 'tag-cloud-tags-3D', {
       reverse: true,
       depth: 0.9,
       maxSpeed: 0.07,
-      weight: true,
-      weightSizeMin: 20,
-      weightSizeMax: 60,
-      weightMode: 'size',
-      weightFrom: 'data-weight',
-      wheelZoom: false,
-      textColour: '#ff6f00',    // 全局字体颜色（备用）
+      textColour: '#ff6f00',
       shadow: '#ff6f00',
       shadowBlur: 10,
       shadowOffset: [0, 0],
@@ -35,6 +22,7 @@ function initTagCloud() {
       trail: true,
       trailDuration: 0.8,
       trailFade: true,
+      outlineColour: 'transparent'
     });
   } catch(e) {
     console.log('TagCanvas error:', e);
