@@ -31,7 +31,7 @@
 <meta property="og:description" content="欢迎来到 FLwolfy 的博客，这里分享编程、游戏和生活的点滴。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-21T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-21T19:15:12.531Z">
+<meta property="article:modified_time" content="2025-06-22T18:37:30.757Z">
 <meta property="article:author" content="FLwolfy">
 <meta property="article:tag" content="其他">
 <meta name="twitter:card" content="summary">
@@ -288,9 +288,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2025-06-21 00:00:00 / 修改时间：19:15:12" itemprop="dateCreated datePublished" datetime="2025-06-21T00:00:00+00:00">2025-06-21</time>
+      <time title="创建时间：2025-06-21 00:00:00" itemprop="dateCreated datePublished" datetime="2025-06-21T00:00:00+00:00">2025-06-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-06-22 18:37:30" itemprop="dateModified" datetime="2025-06-22T18:37:30+00:00">2025-06-22</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -443,9 +449,79 @@
   </span>
 </div>
 
-<script src="https://fastly.jsdelivr.net/npm/live2d-widgets@1.0.0-rc.4/dist/autoload.js"></script>
+
+
+
+
 <script src="https://www.goat1000.com/tagcanvas.min.js"></script>
 <script src="/js/tagcloud3D.js"></script>
+
+
+<script>
+  const cdnPath = "https://cdn.jsdelivr.net/gh/letere-gzj/live2d-widget-v3@main";
+  const config = {
+    // 资源路径
+    path: {
+      homePath: "/",
+      modelPath: "/live2d/resources/",
+      cssPath: "/live2d/waifu.css",
+      tipsJsonPath: "/live2d/waifu-tips.json",
+      tipsJsPath: cdnPath + "/waifu-tips.js",
+      live2dCorePath: cdnPath + "/Core/live2dcubismcore.js",
+      live2dSdkPath: cdnPath + "/live2d-sdk.js"
+    },
+    // 工具栏
+    tools: ["hitokoto", "asteroids", "express", "switch-model", "switch-texture", "photo", "info", "quit"],
+    // 模型拖拽
+    drag: {
+      enable: true,
+      direction: ["x", "y"]
+    },
+    // 模型切换(order: 顺序切换，random: 随机切换)
+    switchType: "order"
+  }
+
+  // 加载资源并初始化
+  if (screen.width >= 768) {
+    Promise.all([
+      loadExternalResource(config.path.cssPath, "css"),
+      loadExternalResource(config.path.live2dCorePath, "js"),
+      loadExternalResource(config.path.live2dSdkPath, "js"),
+      loadExternalResource(config.path.tipsJsPath, "js")
+    ]).then(() => {
+      initWidget({
+        waifuPath: config.path.tipsJsonPath,
+        cdnPath: config.path.modelPath,
+        tools: config.tools,
+        dragEnable: config.drag.enable,
+        dragDirection: config.drag.direction,
+        switchType: config.switchType
+      });
+    });
+  }
+
+  // 异步加载资源
+  function loadExternalResource(url, type) {
+    return new Promise((resolve, reject) => {
+      let tag;
+      if (type === "css") {
+        tag = document.createElement("link");
+        tag.rel = "stylesheet";
+        tag.href = url;
+      }
+      else if (type === "js") {
+        tag = document.createElement("script");
+        tag.src = url;
+      }
+      if (tag) {
+        tag.onload = () => resolve(url);
+        tag.onerror = () => reject(url);
+        document.head.appendChild(tag);
+      }
+    });
+  }
+</script>
+
     </div>
   </footer>
 
