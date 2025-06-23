@@ -28,10 +28,10 @@ https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_0
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_051.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_052.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_060.exp3.json
+https://flwolfy.github.io/categories/index.html
 https://flwolfy.github.io/2025/06/21/home-page/
 https://flwolfy.github.io/2025/06/21/lucario-guide/
 https://flwolfy.github.io/articles/index.html
-https://flwolfy.github.io/categories/index.html
 https://flwolfy.github.io/
 https://flwolfy.github.io/tags/%E5%85%B6%E4%BB%96/
 https://flwolfy.github.io/tags/SSBU/
