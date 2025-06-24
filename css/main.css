@@ -231,6 +231,7 @@ body {
   min-height: 100%;
   position: relative;
   transition: padding 0.2s ease-in-out;
+  scrollbar-gutter: stable;
 }
 h1,
 h2,
@@ -1567,7 +1568,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #54f288;
+    background: #8c4977;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3252,23 +3253,23 @@ a:hover {
   animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 抖动 */
 }
 .main-inner {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 .site-brand-container {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 .main-menu {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 .sidebar-inner {
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 .search-result-container {
