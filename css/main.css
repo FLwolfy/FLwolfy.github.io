@@ -1,7 +1,7 @@
 :root {
   --body-bg-color: #2b003d;
-  --content-bg-color: rgba(109,31,119,0.7);
-  --card-bg-color: rgba(95,233,203,0.7);
+  --content-bg-color: rgba(109,31,119,0.4);
+  --card-bg-color: rgba(233,95,180,0.7);
   --text-color: #d6c9ff;
   --selection-bg: #664c99;
   --selection-color: #fff;
@@ -12,7 +12,7 @@
   --brand-hover-color: #ffc267;
   --table-row-odd-bg-color: #f9f9f9;
   --table-row-hover-bg-color: #f5f5f5;
-  --menu-item-bg-color: rgba(95,233,203,0.7);
+  --menu-item-bg-color: rgba(233,95,180,0.5);
   --theme-color: rgba(255,173,96,0.45);
   --btn-default-bg: #3a0050;
   --btn-default-color: #d6c9ff;
@@ -29,8 +29,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --body-bg-color: #2b003d;
-    --content-bg-color: rgba(109,31,119,0.7);
-    --card-bg-color: rgba(95,233,203,0.7);
+    --content-bg-color: rgba(109,31,119,0.4);
+    --card-bg-color: rgba(233,95,180,0.7);
     --text-color: #d6c9ff;
     --selection-bg: #664c99;
     --selection-color: #fff;
@@ -41,7 +41,7 @@
     --brand-hover-color: #ffc267;
     --table-row-odd-bg-color: #282828;
     --table-row-hover-bg-color: #363636;
-    --menu-item-bg-color: rgba(95,233,203,0.7);
+    --menu-item-bg-color: rgba(233,95,180,0.5);
     --theme-color: rgba(255,173,96,0.45);
     --btn-default-bg: #3a0050;
     --btn-default-color: #d6c9ff;
@@ -1567,7 +1567,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #5bffe7;
+    background: #ff6625;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1612,7 +1612,7 @@ pre code {
   height: 16px;
   padding: 5px;
   width: 16px;
-  background: rgba(95,233,203,0.7);
+  background: rgba(233,95,180,0.5);
   cursor: pointer;
   opacity: 0.6;
   position: fixed;
@@ -3229,9 +3229,38 @@ body::before {
 .headband {
   display: none !important;
 }
-.site-title:hover,
-.post-title:hover {
-  animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
+a {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+a:hover {
+  transform: scale(1.05); /* 放大 */
+  animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 抖动 */
+}
+.main-inner {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.site-brand-container {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.main-menu {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.sidebar-inner {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+.search-result-container {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
 @keyframes shake-it {
   0% {
