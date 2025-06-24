@@ -81,10 +81,14 @@
 	color: #aaa;
 	opacity: 0;
 	position: absolute;
-	right: 15px;
-	top: 55px;
+	left: 50%;
+	bottom: 5px;
+	transform: translateX(-50%);
 	transition: opacity 1s;
+	display: flex;
+	gap: 10px; /* 图标间距，可调 */
 }
+
 
 #live2d:hover +#waifu-tool {
 	opacity: 1;

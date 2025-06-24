@@ -1567,7 +1567,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff6625;
+    background: #ffaf45;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3094,6 +3094,17 @@ header.header {
     display: none;
   }
 }
+.main-menu .menu-item-active::after {
+  background: #bbb;
+  border-radius: 50%;
+  content: ' ';
+  height: 6px;
+  margin-top: -3px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  width: 6px;
+}
 .sub-menu {
   margin: 0;
   padding: 6px 0;
@@ -3208,6 +3219,9 @@ header.header {
   .pagination {
     margin-bottom: 10px;
   }
+}
+.site-title {
+  font-weight: bold;
 }
 body {
   background: url("/images/core/bg.jpg") no-repeat center center fixed;

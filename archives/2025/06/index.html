@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.css" integrity="sha256-zM8WXtG4eUn7dKKNMTuoWZub++VnSfaOpA/8PJfvTBo=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-flash.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/purple/pace-theme-center-circle.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"flwolfy.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.23.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":200,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":false,"color":"#1b1f3b","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":100,"transition":{"column":"fadeInLeft","site_logo":"zoomIn","menu_item":"fadeInDown","post_block":"fadeInRight","post_header":"fadeInRight","post_body":"fadeInRight","coll_header":"fadeInRight","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":true,"preload":true}}</script><script src="/js/config.js" defer></script>
@@ -49,7 +49,6 @@
 
 
   
-  <script size="150" alpha="0.05" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.36/fancybox/fancybox.umd.js" integrity="sha256-hiUEBwFEpLF6DlB8sGXlKo4kPZ46Ui4qGpd0vrVkOm4=" crossorigin="anonymous" defer></script>
@@ -110,7 +109,13 @@
       <h1 class="site-title">FLwolfy's Blog</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">编程，游戏爱好者！</p>
+      <p class="site-subtitle" itemprop="description">
+        <span id="binft"></span>
+        <script src="/js/binft.js"></script>
+        <script>
+          binft(document.getElementById('binft'), "编程，游戏爱好者！");
+        </script>
+      </p>
   </div>
 
   <div class="site-nav-right">
@@ -123,7 +128,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-articles"><a href="/articles/" rel="section"><i class="fa fa-file-alt fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">2</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">2</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-articles"><a href="/articles/" rel="section"><i class="fa fa-file-alt fa-fw"></i>所有文章</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -400,6 +405,50 @@
     });
   }
 </script>
+
+
+<script type="text/javascript"
+        color="255,255,255"
+        opacity="0.9"
+        zIndex="-2"
+        count="200"
+        src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.querySelector('body > canvas');
+    if (!canvas) return;
+    document.addEventListener('mousemove', function (e) {
+      window.mouse = {
+        x: e.clientX,
+        y: e.clientY
+      };
+    });
+    document.addEventListener('mouseleave', function () {
+      window.mouse = null;
+    });
+  });
+</script>
+<style>
+  canvas.canvas-nest-canvas {
+    filter:
+      drop-shadow(0 0 8px rgba(255,255,255,0.9))
+      drop-shadow(0 0 12px rgba(255,255,255,0.6))
+      drop-shadow(0 0 20px rgba(255,255,255,0.4));
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    pointer-events: none;
+    z-index: -2;
+  }
+</style>
+
+
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script type="text/javascript" src="/js/fireworks.js"></script>
+
 
     </div>
   </footer>
