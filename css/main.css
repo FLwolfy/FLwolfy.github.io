@@ -1493,42 +1493,34 @@ pre code {
 .use-motion .menu-item {
   visibility: hidden;
 }
-.github-corner :hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out;
-}
-.github-corner svg {
-  color: #fff;
-  fill: var(--theme-color);
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 5;
+.book-mark-link {
+  border-bottom: 0;
+  position: fixed;
+  top: -10px;
+  transition: top 0.3s;
+  right: 30px;
 }
 @media (max-width: 991px) {
-  .github-corner {
-    display: none;
-  }
-  .github-corner svg {
-    color: var(--theme-color);
-    fill: #fff;
-  }
-  .github-corner .github-corner:hover .octo-arm {
-    animation: none;
-  }
-  .github-corner .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out;
+  .book-mark-link {
+    right: 20px;
   }
 }
-@keyframes octocat-wave {
-  0%, 100% {
-    transform: rotate(0);
+@media (max-width: 991px) {
+  .book-mark-link {
+    display: none;
   }
-  20%, 60% {
-    transform: rotate(-25deg);
-  }
-  40%, 80% {
-    transform: rotate(10deg);
-  }
+}
+.book-mark-link::before {
+  color: rgba(255,173,96,0.45);
+  font-size: 32px;
+  line-height: 1;
+  content: '\f02e';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+.book-mark-link:hover,
+.book-mark-link-fixed {
+  top: -2px;
 }
 @media (max-width: 991px) {
   .sidebar {
@@ -1568,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #8c4977;
+    background: #aadbff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3253,29 +3245,61 @@ a:hover {
   animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 抖动 */
 }
 .main-inner {
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-radius: 0 0 12px 12px;
+}
+.header {
+  background: transparent !important;
 }
 .site-brand-container {
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  position: relative;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  overflow: hidden;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+.site-brand-container::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  height: 80%;
+  transform: translateY(-50%) rotate(-2deg);
+  background: radial-gradient(circle at 30% 50%, rgba(255,0,0,0.4) 0%, transparent 70%), radial-gradient(circle at 70% 50%, rgba(255,0,0,0.35) 0%, transparent 60%), radial-gradient(circle at 50% 60%, rgba(255,100,100,0.3) 0%, transparent 50%);
+  filter: blur(12px);
+  opacity: 0.8;
+  mix-blend-mode: screen;
+  z-index: 0;
 }
 .main-menu {
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+  background: rgba(58,19,109,0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-radius: 0 0 12px 12px;
 }
 .sidebar-inner {
-  backdrop-filter: blur(9px);
-  -webkit-backdrop-filter: blur(9px);
+  background: rgba(58,19,109,0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-radius: 12px;
 }
 .search-result-container {
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-radius: 12px;
+}
+.back-to-top-on {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-radius: 0 0 12px 12px;
 }
 @keyframes shake-it {
   0% {
