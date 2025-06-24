@@ -22,7 +22,8 @@ function initTagCloud() {
       trail: true,
       trailDuration: 0.8,
       trailFade: true,
-      outlineColour: 'transparent'
+      outlineColour: 'transparent',
+      wheelZoom: false
     });
   } catch(e) {
     console.log('TagCanvas error:', e);
