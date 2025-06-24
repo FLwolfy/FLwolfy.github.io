@@ -30,8 +30,8 @@
 <meta property="og:site_name" content="FLwolfy&#39;s Blog">
 <meta property="og:description" content="一个以动态三维球体展示本站所有标签的页面，点击标签可快速浏览相关内容。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-24T08:33:15.732Z">
-<meta property="article:modified_time" content="2025-06-24T08:33:15.732Z">
+<meta property="article:published_time" content="2025-06-24T08:39:24.495Z">
+<meta property="article:modified_time" content="2025-06-24T08:39:24.495Z">
 <meta property="article:author" content="FLwolfy">
 <meta name="twitter:card" content="summary">
 
@@ -400,10 +400,12 @@
         zIndex="-2"
         count="200"
         src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.querySelector('body > canvas');
     if (!canvas) return;
+    canvas.classList.add('canvas-nest-canvas');
     document.addEventListener('mousemove', function (e) {
       window.mouse = {
         x: e.clientX,
@@ -418,9 +420,9 @@
 <style>
   canvas.canvas-nest-canvas {
     filter:
-      drop-shadow(0 0 8px rgba(255,255,255,0.9))
-      drop-shadow(0 0 12px rgba(255,255,255,0.6))
-      drop-shadow(0 0 20px rgba(255,255,255,0.4));
+      drop-shadow(0 0 10px rgba(255,255,255,1))
+      drop-shadow(0 0 18px rgba(255,255,255,0.8))
+      drop-shadow(0 0 28px rgba(255,255,255,0.6));
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;

@@ -43,7 +43,14 @@ function binft(targetElement, content) {
   const stepGap = 1;
   const delay = 75;
   const noiseChars = 5;
-  const colors = [/* 你的颜色列表 */];
+  const colors = [
+    "rgb(255,255,255)",
+    "rgb(220,220,255)",
+    "rgb(200,230,255)",
+    "rgb(180,255,255)",
+    "rgb(160,255,230)"
+  ];
+
 
   const state = {
     text: "",

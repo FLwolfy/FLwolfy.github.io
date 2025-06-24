@@ -31,7 +31,7 @@
 <meta property="og:description" content="欢迎来到 FLwolfy 的博客，这里分享编程、游戏和生活的点滴。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-21T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-24T08:33:15.715Z">
+<meta property="article:modified_time" content="2025-06-24T08:39:24.475Z">
 <meta property="article:author" content="FLwolfy">
 <meta property="article:tag" content="其他">
 <meta name="twitter:card" content="summary">
@@ -301,7 +301,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-06-24 08:33:15" itemprop="dateModified" datetime="2025-06-24T08:33:15+00:00">2025-06-24</time>
+      <time title="修改时间：2025-06-24 08:39:24" itemprop="dateModified" datetime="2025-06-24T08:39:24+00:00">2025-06-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -534,10 +534,12 @@
         zIndex="-2"
         count="200"
         src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const canvas = document.querySelector('body > canvas');
     if (!canvas) return;
+    canvas.classList.add('canvas-nest-canvas');
     document.addEventListener('mousemove', function (e) {
       window.mouse = {
         x: e.clientX,
@@ -552,9 +554,9 @@
 <style>
   canvas.canvas-nest-canvas {
     filter:
-      drop-shadow(0 0 8px rgba(255,255,255,0.9))
-      drop-shadow(0 0 12px rgba(255,255,255,0.6))
-      drop-shadow(0 0 20px rgba(255,255,255,0.4));
+      drop-shadow(0 0 10px rgba(255,255,255,1))
+      drop-shadow(0 0 18px rgba(255,255,255,0.8))
+      drop-shadow(0 0 28px rgba(255,255,255,0.6));
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
