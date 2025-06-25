@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #953d66;
+    background: #4069e8;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3386,6 +3386,74 @@ a:hover {
   -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   border-radius: 0 0 12px 12px;
+}
+.post-body h1 {
+  color: #d5aae2;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  white-space: nowrap;
+  position: relative;
+}
+.post-body h1::before,
+.post-body h1::after {
+  content: "";
+  flex-grow: 1;
+  height: 12px;
+  background: repeating-linear-gradient(-45deg, #9f84a7, #9f84a7 8px, transparent 8px, transparent 16px);
+  background-size: 100% 100%;
+}
+.post-body h1::before {
+  margin-right: 16px;
+}
+.post-body h1::after {
+  margin-left: 16px;
+}
+.post-body h2 {
+  color: #d5aae2;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  white-space: nowrap;
+  position: relative;
+}
+.post-body h2::before,
+.post-body h2::after {
+  content: "";
+  flex-grow: 1;
+  border-top: 2px solid #9f84a7;
+}
+.post-body h2::before {
+  margin-right: 16px;
+}
+.post-body h2::after {
+  margin-left: 16px;
+}
+.post-body h3::before {
+  content: "❮ ";
+}
+.post-body h1 .header-anchor,
+.post-body h2 .header-anchor,
+.post-body h3 .header-anchor,
+.post-body h4 .header-anchor,
+.post-body h5 .header-anchor,
+.post-body h6 .header-anchor,
+.post-body h1 .headerlink,
+.post-body h2 .headerlink,
+.post-body h3 .headerlink,
+.post-body h4 .headerlink,
+.post-body h5 .headerlink,
+.post-body h6 .headerlink {
+  display: none;
+}
+.post-body blockquote {
+  background-color: rgba(41,11,175,0.4);
+  border-left: 3.2px solid rgba(67,86,175,0.8);
+  padding: 16px 20px;
+}
+.post-body blockquote * {
+  font-size: 90%;
+  color: #85c3fd;
 }
 @keyframes shake-it {
   0% {
