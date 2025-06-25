@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #feffff;
+    background: #ffbe36;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2735,16 +2735,16 @@ ul.breadcrumb li:last-child {
   font-weight: bold;
   margin: 24px 0 16px;
   padding: 0px 16px;
-  border-bottom: 2px solid var(--brand-color); /* 建议用 CSS 变量替代 SASS 变量 */
+  border-bottom: 2px solid var(--brand-color);
   display: flex;
   align-items: center;
   gap: 8px;
   color: var(--brand-color);
   border-radius: 6px;
-  background-color: rgba(255,105,180,0.05); /* 示例色，可用 brand-color 淡化 */
+  background-color: rgba(255,105,180,0.05);
 }
 .enhanced-title i {
-  font-size: 18px; /* 原来 1.2em */
+  font-size: 18px;
   color: inherit;
 }
 .category-collage {
