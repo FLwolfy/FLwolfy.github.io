@@ -31,7 +31,7 @@
 <meta property="og:description" content="综合展示本站所有文章的分类与标签，支持图像分类卡片与动态标签云，帮助你快速定位感兴趣的内容。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-25T02:51:18.375Z">
+<meta property="article:modified_time" content="2025-06-25T04:47:32.008Z">
 <meta property="article:author" content="FLwolfy">
 <meta name="twitter:card" content="summary">
 
@@ -398,6 +398,13 @@
       enable: false,
       direction: ["x", "y"]
     },
+    // 模型缩放
+    resize: {
+      defaultScale: 0.6,
+      minScale: 0.2,
+      step: 0.1,
+      origin: "left bottom"
+    },
     // 模型切换(order: 顺序切换，random: 随机切换)
     switchType: "order"
   }
@@ -417,6 +424,12 @@
         dragEnable: config.drag.enable,
         dragDirection: config.drag.direction,
         switchType: config.switchType
+      });
+      initResize({
+        defaultScale: config.resize.defaultScale,
+        minScale: config.resize.minScale,
+        step: config.resize.step,
+        origin: config.resize.origin
       });
     });
   }

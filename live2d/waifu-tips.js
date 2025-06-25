@@ -72,13 +72,21 @@
     var T = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M220.6 121.2L271.1 96 448 96v96H333.2c-21.9-15.1-48.5-24-77.2-24s-55.2 8.9-77.2 24H64V128H192c9.9 0 19.7-2.3 28.6-6.8zM0 128V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H271.1c-9.9 0-19.7 2.3-28.6 6.8L192 64H160V48c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16l0 16C28.7 64 0 92.7 0 128zM344 304c0 48.6-39.4 88-88 88s-88-39.4-88-88s39.4-88 88-88s88 39.4 88 88z"/></svg>';
 
     function V() {
-        fetch("https://v1.hitokoto.cn").then(e => e.json()).then(e => {
-            let o = `\u8FD9\u53E5\u4E00\u8A00\u6765\u81EA <span>\u300C${e.from}\u300D</span>\uFF0C\u662F <span>${e.creator}</span> \u5728 hitokoto.cn \u6295\u7A3F\u7684\u3002`;
-            a(e.hitokoto, 6e3, 9), setTimeout(() => {
-                a(o, 4e3, 9)
-            }, 6e3)
-        })
+        const quotes = A?.message?.quotes;
+        if (Array.isArray(quotes) && quotes.length > 0) {
+            const quote = g(quotes);
+            a(quote, 6000, 9);
+        } else {
+            fetch("https://v1.hitokoto.cn").then(e => e.json()).then(e => {
+                let o = `这句一言来自 <span>「${e.from}」</span>，是 <span>${e.creator}</span> 在 hitokoto.cn 投稿的。`;
+                a(e.hitokoto, 6000, 9);
+                setTimeout(() => {
+                    a(o, 4000, 9);
+                }, 6000);
+            });
+        }
     }
+
     var U = {
             hitokoto: {
                 icon: y,
@@ -111,7 +119,7 @@
             info: {
                 icon: b,
                 callback: () => {
-                    a("免责申明：本页面看板娘模型版权归《魔法纪录》手游原作者所有，如果者侵害了你的版权，请通过邮件联系我，我将立马处理。", 6000, 10);
+                    a("申明：本页面看板娘模型版权归《魔法纪录》手游原作者所有，如果者侵害了你的版权，请通过邮件联系我，我会立刻处理。", 6000, 10);
                 }
             },
             photo: {
@@ -297,6 +305,70 @@
     function z() {
         a(H(), 7e3, 11)
     }
+
+    function R(r) {
+        const waifu = document.getElementById("waifu");
+        if (!waifu) {
+            setTimeout(() => R(r), 100);
+            return;
+        }
+
+        const maxScale = 1.0;
+        const minScale = Math.min(Math.max(r.minScale || 0.1, 0.1), maxScale);
+        const step = Math.min(Math.max(r.step || 0.05, 0.05), maxScale);
+        let scale = Math.min(Math.max(r.defaultScale ?? 1.0, minScale), maxScale);
+
+        waifu.style.transformOrigin = r.origin || "center center";
+        waifu.style.transform = `scale(${scale})`;
+
+        // 滚轮缩放
+        waifu.addEventListener("wheel", e => {
+            e.preventDefault();
+            if (e.deltaY > 0) {
+                scale = Math.max(minScale, scale - step);
+            } else if (e.deltaY < 0) {
+                scale = Math.min(maxScale, scale + step);
+            }
+            waifu.style.transform = `scale(${scale})`;
+        }, { passive: false });
+
+        // 触摸缩放
+        let lastDistance = null;
+        const getDistance = (t1, t2) =>
+            Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+
+        waifu.addEventListener("touchstart", e => {
+            if (e.touches.length === 2) {
+                lastDistance = getDistance(e.touches[0], e.touches[1]);
+            }
+        }, { passive: false });
+
+        waifu.addEventListener("touchmove", e => {
+            if (e.touches.length === 2) {
+                e.preventDefault();
+                const newDistance = getDistance(e.touches[0], e.touches[1]);
+                if (lastDistance !== null) {
+                    const diff = newDistance - lastDistance;
+                    const sensitivity = step * 10;
+                    if (diff > 0) {
+                        scale = Math.min(maxScale, scale + sensitivity);
+                    } else if (diff < 0) {
+                        scale = Math.max(minScale, scale - sensitivity);
+                    }
+                    waifu.style.transform = `scale(${scale})`;
+                }
+                lastDistance = newDistance;
+            }
+        }, { passive: false });
+
+        waifu.addEventListener("touchend", e => {
+            if (e.touches.length < 2) {
+                lastDistance = null;
+            }
+        }, { passive: false });
+    }
+
     window.initWidget = B;
+    window.initResize = R; 
     window.showWelcomeMessage = z;
 })();
