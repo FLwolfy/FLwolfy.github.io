@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="rgba(255, 173, 96, 0.45)" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="rgba(255, 173, 96, 0.45)" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/core/icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/core/favicon.png">
@@ -13,7 +14,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -113,7 +114,7 @@
         <span id="binft"></span>
         <script src="/js/binft.js"></script>
         <script>
-          binft(document.getElementById('binft'), "编程，游戏爱好者！");
+          binft(document.getElementById('binft'), "编程、游戏、动漫爱好者！");
         </script>
       </p>
   </div>
@@ -225,6 +226,27 @@
   <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
+<div class="widget-wrap">
+  <div class="widget-title" style="display: flex; align-items: center; justify-content: center; gap: 0.5em;">
+    <span>🕒</span>
+    <span id="custom-clock" style="font-size: 1.1em; letter-spacing: 0.1em; font-weight: bold;"></span>
+  </div>
+</div>
+
+<script>
+  const clock = document.getElementById('custom-clock');
+  function updateTime() {
+    const now = new Date();
+    const h = now.getHours().toString().padStart(2, '0');
+    const m = now.getMinutes().toString().padStart(2, '0');
+    const s = now.getSeconds().toString().padStart(2, '0');
+    clock.textContent = `${h}:${m}:${s}`;
+    clock.classList.add('update');
+    setTimeout(() => clock.classList.remove('update'), 300);
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+</script>
 
         </div>
       </div>

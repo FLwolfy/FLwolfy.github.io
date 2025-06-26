@@ -225,7 +225,7 @@ body {
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1em;
   line-height: 2;
   min-height: 100%;
@@ -239,7 +239,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: Noto Serif SC, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-weight: bold;
   line-height: 1.5;
   margin: 30px 0 15px;
@@ -825,7 +825,7 @@ pre .caption a:hover {
 }
 pre,
 code {
-  font-family: consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
+  font-family: JetBrains Mono, consolas, Menlo, monospace, 'PingFang SC', 'Microsoft YaHei';
 }
 code {
   border-radius: 3px;
@@ -1390,7 +1390,7 @@ pre code {
   color: var(--brand-hover-color);
 }
 .site-title {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 1.375em;
   font-weight: normal;
   line-height: 1.5;
@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #0f79ff;
+    background: #ff8c1d;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2242,7 +2242,7 @@ pre code {
   width: 4px;
 }
 .post-body {
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
 }
 @media (min-width: 1200px) {
@@ -2428,7 +2428,7 @@ pre code {
 }
 .posts-expand .post-meta-container {
   color: #999;
-  font-family: Lato, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   font-size: 0.75em;
   margin-top: 3px;
 }
@@ -3298,6 +3298,12 @@ header.header {
 .site-title {
   font-weight: bold;
 }
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+SC&display=swap");
+html,
+body,
+* {
+  font-family: 'Noto Sans SC', 'Noto Sans', 'Microsoft YaHei', sans-serif;
+}
 body {
   background: url("/images/core/bg.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -3427,7 +3433,9 @@ a:hover {
   margin-left: 16px;
 }
 .post-body h3::before {
-  content: "❮ ";
+  content: "❮";
+  margin-right: 5px;
+  border-bottom: 1px solid #9f84a7;
 }
 .post-body h1 .header-anchor,
 .post-body h2 .header-anchor,
