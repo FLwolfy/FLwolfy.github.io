@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff26ff;
+    background: #0f79ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2732,7 +2732,6 @@ ul.breadcrumb li:last-child {
 .enhanced-title {
   font-size: 30px;
   font-weight: bold;
-  margin: 24px 0 16px;
   padding: 0px 16px;
   border-bottom: 2px solid var(--brand-color);
   display: flex;
@@ -2741,14 +2740,22 @@ ul.breadcrumb li:last-child {
   color: var(--brand-color);
   border-radius: 6px;
   background-color: rgba(255,105,180,0.05);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 .enhanced-title i {
   font-size: 18px;
   color: inherit;
 }
-.category-collage {
-  background: rgba(255,0,0,0.1);
+.cats-tags-container {
+  text-align: center;
+  background: rgba(255,105,180,0.05);
   border-radius: 12px;
+}
+.cats-tags-container a {
+  font-weight: bold;
+  display: inline-block;
+  margin: 10px;
 }
 .category-collage-categories {
   display: flex;
@@ -2816,16 +2823,6 @@ ul.breadcrumb li:last-child {
   max-width: 90%;
   pointer-events: none;
   z-index: 2;
-}
-.tag-cloud {
-  text-align: center;
-  background: rgba(255,0,195,0.1);
-  border-radius: 12px;
-}
-.tag-cloud a {
-  font-weight: bold;
-  display: inline-block;
-  margin: 10px;
 }
 .tag-cloud-0 {
   border-bottom-color: #0ff;
@@ -3330,6 +3327,7 @@ a:hover {
   animation: shake-it 0.5s reverse infinite cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 抖动 */
 }
 .main-inner {
+  opacity: 0;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);

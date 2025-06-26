@@ -90,18 +90,23 @@ NexT.motion.middleWares = {
     const sequence = [];
     const { post_block, post_header, post_body, coll_header} = CONFIG.motion.transition;
 
-    function animate(animation, elements) {
+    function animate(animation, elements, opacity = false) {
       if (!animation) return;
       elements.forEach(targets => {
         sequence.push({
           targets,
-          complete: () => targets.classList.add('animated', animation),
+          complete: () => {
+            targets.classList.add('animated', animation);
+            if (opacity) {
+              targets.style.opacity = opacity;
+            }
+          },
           deltaT  : '-=100'
         });
       });
     }
 
-    animate(post_block, document.querySelectorAll('.main-inner'));
+    animate(post_block, document.querySelectorAll('.main-inner'), "1");
     document.querySelectorAll('.post-block').forEach(targets => {
       sequence.push({
         targets,
