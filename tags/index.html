@@ -32,7 +32,7 @@
 <meta property="og:description" content="综合展示本站所有文章的分类与标签，支持图像分类卡片与动态标签云，帮助你快速定位感兴趣的内容。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-26T08:20:25.958Z">
+<meta property="article:modified_time" content="2025-06-26T09:01:19.327Z">
 <meta property="article:author" content="FLwolfy">
 <meta name="twitter:card" content="summary">
 
@@ -231,15 +231,26 @@
   <div class="cc-license animated" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
   </div>
-<div class="widget-wrap">
-  <div class="widget-title" style="display: flex; align-items: center; justify-content: center; gap: 0.5em;">
+<div class="time-widget-wrap" style="cursor: pointer;">
+  <a class="time-widget" style="
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2em;
+    padding: 0 4px;
+    white-space: nowrap;
+    user-select: none;
+  ">
     <span>🕒</span>
     <span id="custom-clock" style="font-size: 1.1em; letter-spacing: 0.1em; font-weight: bold;"></span>
-  </div>
+  </a>
 </div>
 
 <script>
   const digitalClock = document.getElementById('custom-clock');
+  const widgetWrap = document.querySelector('.time-widget-wrap');
+  let collapsed = false;
+
   function updateTime() {
     const now = new Date();
     const h = now.getHours().toString().padStart(2, '0');
@@ -249,9 +260,39 @@
     digitalClock.classList.add('update');
     setTimeout(() => digitalClock.classList.remove('update'), 300);
   }
+
   updateTime();
   setInterval(updateTime, 1000);
+
+  widgetWrap.addEventListener('click', e => {
+    e.stopPropagation();
+    collapsed = !collapsed;
+    toggleStates(collapsed);
+  });
+
+  document.addEventListener('click', () => {
+    if (collapsed) {
+      collapsed = false;
+      toggleStates(collapsed);
+    }
+  });
+
+  function toggleStates(collapse) {
+    // 控制 main-inner
+    const mainInner = document.querySelector('.main-inner');
+    if (mainInner) {
+      mainInner.style.transition = 'transform 0.5s ease';
+      mainInner.style.transform = collapse ? 'translateY(-100%)' : 'translateY(0)';
+      mainInner.style.pointerEvents = collapse ? 'none' : 'auto';
+    }
+
+    // TODO: 控制 clock-container 平移并显示当前时间
+    const clockContainer = document.querySelector('.clock-container');
+    
+  }
 </script>
+
+
         </div>
       </div>
         <div class="back-to-top animated" role="button" aria-label="返回顶部">

@@ -241,20 +241,9 @@ function adjustClockSize() {
     // 根据窗口大小计算缩放比例
     const scale = Math.min(windowWidth / 300, windowHeight / 200);
 
-    // 获取时钟容器
+    // 应用缩放
     const clockContainer = document.querySelector('.clock-container');
-
-    // 应用样式
     clockContainer.style.transform = `scale(${scale})`;
-    clockContainer.style.position = 'fixed';
-    clockContainer.style.right = '-30%';
-    clockContainer.style.top = '50%';
-    clockContainer.style.transformOrigin = 'center center';
-    clockContainer.style.marginTop = '-200px'; // 假设时钟高度约为400px，使垂直居中
-
-    // 确保时钟容器有明确的尺寸
-    clockContainer.style.width = '400px';
-    clockContainer.style.height = '400px';
 
     // 设置子元素的宽高并移动元素
     setupClockContainer(clockContainer);

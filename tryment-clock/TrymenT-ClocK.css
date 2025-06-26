@@ -1,7 +1,11 @@
 .clock-container {
-    position: relative;
+    position: fixed;
     width: 400px;
     height: 400px;
+    right: -30%;
+    top: 50%;
+    transform-origin: center center;
+    margin-top: -200px;
 }
 
 .clock {
