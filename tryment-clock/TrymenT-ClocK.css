@@ -1,0 +1,86 @@
+.clock-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+}
+
+.clock {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    border: 0.5px solid rgba(180, 150, 250, 0.8); /* 淡紫色边框 */
+    box-shadow:
+      0 0 10px rgba(180, 150, 250, 0.7),
+      inset 0 0 15px rgba(180, 150, 250, 0.8);
+}
+
+.clock-marker {
+    position: absolute;
+    font-size: 24px;
+    color: #f5aaef; /* 淡紫色 */
+    text-shadow:
+      0 0 6px #b496fa,
+      0 0 12px #a07cf9,
+      0 0 18px #8e66f8,
+      0 0 24px #7b50f7;
+    transform-origin: center;
+    width: 40px;
+    text-align: center;
+}
+
+.clock-diamond {
+    position: absolute;
+    background-color: #e8d6fc; /* 更亮的淡紫 */
+    box-shadow:
+      0 0 6px #e8d6fc,
+      0 0 12px #e8d6fc,
+      0 0 20px #ffffff,
+      0 0 30px #cba6f7; /* 叠加多层光晕更显亮 */
+    transform-origin: bottom center;
+}
+
+.clock-diamond-highlight {
+    position: absolute;
+    background-color: #fff599; /* 更白更亮的高光黄 */
+    box-shadow:
+      0 0 12px #fff599,
+      0 0 24px #fffac2,
+      0 0 36px #ffffff,
+      0 0 48px #ffe368,
+      0 0 64px #ffd84d; /* 多层白黄发光 */
+    transform-origin: bottom center;
+}
+
+.clock-tick-mark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 0.5px;
+    height: 10px;
+    background-color: #b496fa;
+    box-shadow:
+      0 0 6px #b496fa,
+      0 0 10px #a07cf9;
+    transform-origin: bottom center;
+}
+
+.clock-circle-dial {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 301px;
+    height: 301px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    border: 1px solid #b496fa;
+    box-shadow:
+      0 0 15px #b496fa,
+      inset 0 0 10px #a07cf9;
+    box-sizing: border-box;
+}
+
+.roman-container, .greek-container {
+    transition: transform 0.5s linear;
+    filter: drop-shadow(0 0 6px #b496fa);
+}

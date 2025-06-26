@@ -234,20 +234,19 @@
 </div>
 
 <script>
-  const clock = document.getElementById('custom-clock');
+  const digitalClock = document.getElementById('custom-clock');
   function updateTime() {
     const now = new Date();
     const h = now.getHours().toString().padStart(2, '0');
     const m = now.getMinutes().toString().padStart(2, '0');
     const s = now.getSeconds().toString().padStart(2, '0');
-    clock.textContent = `${h}:${m}:${s}`;
-    clock.classList.add('update');
-    setTimeout(() => clock.classList.remove('update'), 300);
+    digitalClock.textContent = `${h}:${m}:${s}`;
+    digitalClock.classList.add('update');
+    setTimeout(() => digitalClock.classList.remove('update'), 300);
   }
   updateTime();
   setInterval(updateTime, 1000);
 </script>
-
         </div>
       </div>
         <div class="back-to-top animated" role="button" aria-label="返回顶部">
@@ -470,6 +469,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 <script type="text/javascript" src="/js/fireworks.js"></script>
 
+
+<link rel="stylesheet" href="/tryment-clock/TrymenT-ClocK.css">
+<script src="/tryment-clock/TrymenT-ClocK.js"></script>
 
     </div>
   </footer>
