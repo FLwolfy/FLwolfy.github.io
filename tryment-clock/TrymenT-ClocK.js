@@ -31,19 +31,31 @@ function initialize() {
 
     // 确保时钟容器在背景层
     clockContainer.style.zIndex = '-2';
+    clockContainer.style.width = '400px';
+    clockContainer.style.height = '400px';
+    clockContainer.style.transformOrigin = '50% 50%';
+
     console.log('Welcome to Tryment Clock');
 }
 
 // 创建时钟元素的函数
 function createClockElements() {
+    // 外侧大圆圈
+    const borderCircle = document.createElement('div');
+    borderCircle.className = 'clock-circle-dial';
+    borderCircle.style.width = '380px';
+    borderCircle.style.height = '380px';
+    clock.appendChild(borderCircle);
+
     // 添加外圈刻度线
     for (let i = 0; i < 60; i++) {
         const angle = i * 6 * (Math.PI / 180);
-        const x = 194 * Math.sin(angle) + 200;
-        const y = -194 * Math.cos(angle) + 200;
+        const x = 184 * Math.sin(angle) + 200;
+        const y = -184 * Math.cos(angle) + 200;
 
         const tick = document.createElement('div');
         tick.className = 'clock-tick-mark';
+        tick.style.width = '0.5px';
         tick.style.height = '6px';
         tick.style.left = `${x}px`;
         tick.style.top = `${y}px`;
@@ -55,23 +67,23 @@ function createClockElements() {
     // 圆圈1 - 位于罗马数字和内圈刻度线之间
     const innerCircle = document.createElement('div');
     innerCircle.className = 'clock-circle-dial';
-    innerCircle.style.width = '301px';
-    innerCircle.style.height = '301px';
+    innerCircle.style.width = '281px';
+    innerCircle.style.height = '281px';
     clock.appendChild(innerCircle);
 
     // 圆圈2 - 位于希腊字母和内圈刻度线之间
     const outerCircle = document.createElement('div');
     outerCircle.className = 'clock-circle-dial';
-    outerCircle.style.width = '321px';
-    outerCircle.style.height = '321px';
+    outerCircle.style.width = '301px';
+    outerCircle.style.height = '301px';
     clock.appendChild(outerCircle);
 
     // 添加中间刻度线，绿色棱形
     // 垂直于中心刻度线 (内圈，介于罗马数字和希腊字母之间)
     for (let i = 0; i < 60; i++) {
         const angle = i * 6 * (Math.PI / 180);
-        const x = 150 * Math.sin(angle) + 200;
-        const y = -150 * Math.cos(angle) + 200;
+        const x = 140 * Math.sin(angle) + 200;
+        const y = -140 * Math.cos(angle) + 200;
 
         if (i % 5 === 0) {
             // 对于每5分钟的刻度，使用棱形
@@ -89,6 +101,7 @@ function createClockElements() {
             // 对于其他刻度，保持原有的线条样式
             const tick = document.createElement('div');
             tick.className = 'clock-tick-mark';
+            tick.style.width = '0.5px';
             tick.style.height = '9.5px'; // 所有非5分钟刻度统一使用小刻度
             tick.style.left = `${x}px`;
             tick.style.top = `${y}px`;
@@ -142,7 +155,8 @@ function createSymbolMarkers(container, symbols, radius, angleStep) {
         const marker = document.createElement('div');
         marker.className = 'clock-marker';
         marker.textContent = symbol;
-        marker.style.fontSize = '30px';
+        marker.style.width = '40px';
+        marker.style.fontSize = '24px';
         marker.style.position = 'absolute';
         marker.style.left = `${x - 20}px`;
         marker.style.top = `${y - 12}px`;
@@ -162,6 +176,8 @@ function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
         const marker = document.createElement('div');
         marker.className = 'clock-marker';
         marker.style.position = 'absolute';
+        marker.style.width = '40px';
+        marker.style.fontSize = '24px';
         marker.style.left = `${x - 20}px`;
         marker.style.top = `${y - 12}px`;
         marker.style.transform = `rotate(${i * angleStep}deg)`;
@@ -181,7 +197,7 @@ function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
             cross.style.position = 'absolute';
             cross.style.fontSize = '24px';
             cross.style.zIndex = '2';
-            cross.style.top = '-3px';
+            cross.style.top = '-2px';
 
             // 创建数字0
             const zero = document.createElement('span');
@@ -189,7 +205,7 @@ function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
             zero.style.position = 'absolute';
             zero.style.fontSize = '24px';
             zero.style.zIndex = '1';
-            zero.style.top = '-3px';
+            zero.style.top = '-2px';
 
             // 添加到叠加容器
             marker.appendChild(cross);
@@ -240,14 +256,15 @@ function adjustClockSize() {
 
     // 根据窗口大小计算缩放比例
     const scale = Math.min(windowWidth / 300, windowHeight / 200);
+    globalScale = scale; // 如果你需要别处使用
 
-    // 应用缩放
     const clockContainer = document.querySelector('.clock-container');
     clockContainer.style.transform = `scale(${scale})`;
 
     // 设置子元素的宽高并移动元素
     setupClockContainer(clockContainer);
 }
+
 
 // 设置时钟容器
 function setupClockContainer(clockContainer) {

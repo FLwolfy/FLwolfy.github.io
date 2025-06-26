@@ -1,10 +1,7 @@
 .clock-container {
     position: fixed;
-    width: 400px;
-    height: 400px;
     right: -30%;
     top: 50%;
-    transform-origin: center center;
     margin-top: -200px;
 }
 
@@ -13,23 +10,16 @@
     height: 100%;
     border-radius: 50%;
     position: relative;
-    border: 0.5px solid rgba(180, 150, 250, 0.8); /* 淡紫色边框 */
-    box-shadow:
-      0 0 10px rgba(180, 150, 250, 0.7),
-      inset 0 0 15px rgba(180, 150, 250, 0.8);
 }
 
 .clock-marker {
     position: absolute;
-    font-size: 24px;
     color: #f5aaef; /* 淡紫色 */
     text-shadow:
       0 0 6px #b496fa,
       0 0 12px #a07cf9,
       0 0 18px #8e66f8,
       0 0 24px #7b50f7;
-    transform-origin: center;
-    width: 40px;
     text-align: center;
 }
 
@@ -60,8 +50,6 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 0.5px;
-    height: 10px;
     background-color: #b496fa;
     box-shadow:
       0 0 6px #b496fa,
@@ -73,8 +61,6 @@
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 301px;
-    height: 301px;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     border: 1px solid #b496fa;
