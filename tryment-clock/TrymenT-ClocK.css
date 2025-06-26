@@ -1,19 +1,17 @@
 .clock-container {
-    position: fixed;
     right: -30%;
-    top: 50%;
+    top: 45%;
     margin-top: -200px;
 }
 
 .clock {
+    position: relative;
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    position: relative;
 }
 
 .clock-marker {
-    position: absolute;
     color: #f5aaef; /* 淡紫色 */
     text-shadow:
       0 0 6px #b496fa,
@@ -24,7 +22,6 @@
 }
 
 .clock-diamond {
-    position: absolute;
     background-color: #e8d6fc; /* 更亮的淡紫 */
     box-shadow:
       0 0 6px #e8d6fc,
@@ -35,19 +32,17 @@
 }
 
 .clock-diamond-highlight {
-    position: absolute;
-    background-color: #fff599; /* 更白更亮的高光黄 */
-    box-shadow:
-      0 0 12px #fff599,
-      0 0 24px #fffac2,
-      0 0 36px #ffffff,
-      0 0 48px #ffe368,
-      0 0 64px #ffd84d; /* 多层白黄发光 */
-    transform-origin: bottom center;
+  background-color: #ffd25a;
+  box-shadow:
+    0 0 4px 1px #ffa500,
+    0 0 8px 2px #ffae42,
+    0 0 12px 4px #ffd700,
+    0 0 20px 6px #ffe066,
+    0 0 32px 10px #fff0b3;
+  transform-origin: bottom center;
 }
 
 .clock-tick-mark {
-    position: absolute;
     left: 50%;
     top: 50%;
     background-color: #b496fa;
@@ -58,7 +53,6 @@
 }
 
 .clock-circle-dial {
-    position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -73,4 +67,29 @@
 .roman-container, .greek-container {
     transition: transform 0.5s linear;
     filter: drop-shadow(0 0 6px #b496fa);
+}
+
+/* 大时间显示在时钟中心 */
+.clock-time-overlay {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  font-size: 42px;
+  font-weight: bold;
+  color: #fffacd;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  z-index: 5;
+  text-shadow:
+    0 0 4px #ffa500,
+    0 0 8px #ffae42,
+    0 0 12px #ffd700;
+  isolation: isolate;
+}
+
+.clock-time-overlay.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.15);
 }

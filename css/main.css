@@ -1511,7 +1511,7 @@ pre code {
   }
 }
 .book-mark-link::before {
-  color: rgba(255,173,96,0.45);
+  color: rgba(96,231,255,0.7);
   font-size: 32px;
   line-height: 1;
   content: '\f02e';
@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fff;
+    background: #ffd51b;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);

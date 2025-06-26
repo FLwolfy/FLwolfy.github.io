@@ -19,6 +19,13 @@ function initialize() {
         const clockElement = document.createElement('div');
         clockElement.className = 'clock';
         clockContainer.appendChild(clockElement);
+
+        // 添加数字时间显示
+        const timeOverlay = document.createElement('div');
+        timeOverlay.className = 'clock-time-overlay';
+        timeOverlay.id = 'clock-time-overlay';
+        timeOverlay.textContent = ''; // 初始为空
+        clockContainer.appendChild(timeOverlay);
     }
 
     // 强制重新获取clock元素
@@ -30,6 +37,7 @@ function initialize() {
     setInterval(() => updateClock(1000), 500); // 每500毫秒更新一次
 
     // 确保时钟容器在背景层
+    clockContainer.style.position = 'fixed';
     clockContainer.style.zIndex = '-2';
     clockContainer.style.width = '400px';
     clockContainer.style.height = '400px';
@@ -43,6 +51,7 @@ function createClockElements() {
     // 外侧大圆圈
     const borderCircle = document.createElement('div');
     borderCircle.className = 'clock-circle-dial';
+    borderCircle.style.position = 'absolute';
     borderCircle.style.width = '380px';
     borderCircle.style.height = '380px';
     clock.appendChild(borderCircle);
@@ -55,6 +64,7 @@ function createClockElements() {
 
         const tick = document.createElement('div');
         tick.className = 'clock-tick-mark';
+        tick.style.position = 'absolute';
         tick.style.width = '0.5px';
         tick.style.height = '6px';
         tick.style.left = `${x}px`;
@@ -67,6 +77,7 @@ function createClockElements() {
     // 圆圈1 - 位于罗马数字和内圈刻度线之间
     const innerCircle = document.createElement('div');
     innerCircle.className = 'clock-circle-dial';
+    innerCircle.style.position = 'absolute';
     innerCircle.style.width = '281px';
     innerCircle.style.height = '281px';
     clock.appendChild(innerCircle);
@@ -74,6 +85,7 @@ function createClockElements() {
     // 圆圈2 - 位于希腊字母和内圈刻度线之间
     const outerCircle = document.createElement('div');
     outerCircle.className = 'clock-circle-dial';
+    outerCircle.style.position = 'absolute';
     outerCircle.style.width = '301px';
     outerCircle.style.height = '301px';
     clock.appendChild(outerCircle);
@@ -89,6 +101,7 @@ function createClockElements() {
             // 对于每5分钟的刻度，使用棱形
             const diamond = document.createElement('div');
             diamond.className = (i === 45) ? 'clock-diamond-highlight' : 'clock-diamond';
+            diamond.style.position = 'absolute';
             diamond.style.width = '8px';
             diamond.style.height = '20px';
             diamond.style.left = `${x}px`;
@@ -101,6 +114,7 @@ function createClockElements() {
             // 对于其他刻度，保持原有的线条样式
             const tick = document.createElement('div');
             tick.className = 'clock-tick-mark';
+            tick.style.position = 'absolute';
             tick.style.width = '0.5px';
             tick.style.height = '9.5px'; // 所有非5分钟刻度统一使用小刻度
             tick.style.left = `${x}px`;
@@ -197,11 +211,11 @@ function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
             cross.style.position = 'absolute';
             cross.style.fontSize = '24px';
             cross.style.zIndex = '2';
-            cross.style.top = '-2px';
+            cross.style.top = '-3px';
 
             // 创建数字0
             const zero = document.createElement('span');
-            zero.textContent = '○';
+            zero.textContent = '⬤';
             zero.style.position = 'absolute';
             zero.style.fontSize = '24px';
             zero.style.zIndex = '1';
@@ -231,11 +245,8 @@ function updateClock(duration = 0) {
     // 计算旋转角度
     // 最左边是指示器，所以加270。旋转方向需要是顺时针的，所以加负号
     // 外圈分钟，内圈小时
-    const romanAngle = 270 - (hours * 30);
+    const romanAngle = 270 - (hours * 30 + minutes * 0.5);
     const greekAngle = 270 + (minutes * 6 + seconds * 0.1);
-    // 外圈秒钟，内圈分钟
-    // const romanAngle = 270 - (minutes * 30);
-    // const greekAngle = 270 + (seconds * 6);
 
     // 设置动态过渡时长（单位：秒）
     const durationSeconds = duration / 1000;
@@ -255,7 +266,7 @@ function adjustClockSize() {
     const windowHeight = window.innerHeight;
 
     // 根据窗口大小计算缩放比例
-    const scale = Math.min(windowWidth / 300, windowHeight / 200);
+    const scale = Math.min(windowWidth / 250, windowHeight / 200);
     globalScale = scale; // 如果你需要别处使用
 
     const clockContainer = document.querySelector('.clock-container');

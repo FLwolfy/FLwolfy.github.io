@@ -88,7 +88,7 @@ NexT.motion.middleWares = {
 
   postList() {
     const sequence = [];
-    const { post_block, post_header, post_body, coll_header} = CONFIG.motion.transition;
+    const { post_block, post_header, post_body, coll_header, clock} = CONFIG.motion.transition;
 
     function animate(animation, elements, opacity = false) {
       if (!animation) return;
@@ -107,6 +107,17 @@ NexT.motion.middleWares = {
     }
 
     animate(post_block, document.querySelectorAll('.main-inner'), "1");
+    const clockContainer = document.querySelector('.clock-container');
+    
+    if (clock === 'enabled') {
+      let defaultRightAmount = clockContainer.style.right;
+      clockContainer.style.right = '-100%';
+      clockContainer.style.transition = `right ${10 * CONFIG.motion.duration}ms ease`;
+      requestAnimationFrame(() => {
+        clockContainer.style.right = defaultRightAmount;
+      });
+    }
+
     document.querySelectorAll('.post-block').forEach(targets => {
       sequence.push({
         targets,
