@@ -1,26 +1,25 @@
-///////////////////////////////////////////////////////////////////////////////////////////////
-/////////// 源代码来自：https://github.com/Tokisaki-Galaxy/TrymenT-ClocK/tree/master ///////////
-/////////////////////////// 原作者：Tokisaki-Galaxy || 修改：FLwolfy ///////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////
-
 const symbols = ['Ⅻ', 'Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ', 'Ⅵ', 'Ⅶ', 'Ⅷ', 'Ⅸ', 'Ⅹ', 'Ⅺ'];
-const specialSymbols = ['Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 'Ω', 'OVERLAY_CHAR'].reverse();
+const specialSymbols = ['Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 'Ω', '☯'].reverse();
 
-// 初始化函数
+const baseSize = 400; // 基准尺寸，设计稿的大小
+let previousScale = 1; // 上一次的缩放比例
+
 function initialize() {
-    // 创建或获取时钟容器
     let clockContainer = document.querySelector('.clock-container');
+
     if (!clockContainer) {
         clockContainer = document.createElement('div');
         clockContainer.className = 'clock-container';
+        clockContainer.style.position = 'fixed';
+        clockContainer.style.zIndex = '-6';
+        clockContainer.transform = 'translate(-50%, -50%)';
+
         document.body.appendChild(clockContainer);
 
-        // 创建时钟元素
         const clockElement = document.createElement('div');
         clockElement.className = 'clock';
         clockContainer.appendChild(clockElement);
 
-        // 添加数字时间显示
         const timeOverlay = document.createElement('div');
         timeOverlay.className = 'clock-time-overlay';
         timeOverlay.id = 'clock-time-overlay';
@@ -28,115 +27,74 @@ function initialize() {
         clockContainer.appendChild(timeOverlay);
     }
 
-    // 强制重新获取clock元素
     window.clock = document.querySelector('.clock-container .clock');
 
     createClockElements();
-    adjustClockSize();
+    onResize();
 
-    const updateInterval = 5000; // 每5秒更新一次
-    updateClock(updateInterval); // 初始更新
+    const updateInterval = 5000;
+    updateClock(updateInterval);
     setInterval(() => updateClock(updateInterval), updateInterval / 2);
-
-    // 确保时钟容器在背景层
-    clockContainer.style.position = 'fixed';
-    clockContainer.style.zIndex = '-10';
-    clockContainer.style.width = '400px';
-    clockContainer.style.height = '400px';
-    clockContainer.style.transformOrigin = '50% 50%';
 
     console.log('Welcome to Tryment Clock');
 }
 
-// 创建时钟元素的函数
+// 创建时钟元素（清空后重新添加）
 function createClockElements() {
+    const clock = window.clock;
+    if (!clock) return;
+
+    clock.innerHTML = '';
+
     // 外侧大圆圈
     const borderCircle = document.createElement('div');
     borderCircle.className = 'clock-circle-dial';
     borderCircle.style.position = 'absolute';
-    borderCircle.style.width = '380px';
-    borderCircle.style.height = '380px';
     clock.appendChild(borderCircle);
 
-    // 添加外圈刻度线
+    // 外圈刻度线 60个
     for (let i = 0; i < 60; i++) {
-        const angle = i * 6 * (Math.PI / 180);
-        const x = 184 * Math.sin(angle) + 200;
-        const y = -184 * Math.cos(angle) + 200;
-
         const tick = document.createElement('div');
         tick.className = 'clock-tick-mark';
         tick.style.position = 'absolute';
-        tick.style.width = '0.5px';
-        tick.style.height = '6px';
-        tick.style.left = `${x}px`;
-        tick.style.top = `${y}px`;
-        tick.style.transform = `translate(-50%, -100%) rotate(${i * 6}deg)`;
         clock.appendChild(tick);
     }
 
-    // 添加两个实线圆圈（夹住中间刻度线）
-    // 圆圈1 - 位于罗马数字和内圈刻度线之间
+    // 两个实线圆圈
     const innerCircle = document.createElement('div');
     innerCircle.className = 'clock-circle-dial';
     innerCircle.style.position = 'absolute';
-    innerCircle.style.width = '281px';
-    innerCircle.style.height = '281px';
     clock.appendChild(innerCircle);
 
-    // 圆圈2 - 位于希腊字母和内圈刻度线之间
     const outerCircle = document.createElement('div');
     outerCircle.className = 'clock-circle-dial';
     outerCircle.style.position = 'absolute';
-    outerCircle.style.width = '301px';
-    outerCircle.style.height = '301px';
     clock.appendChild(outerCircle);
 
-    // 添加中间刻度线，绿色棱形
-    // 垂直于中心刻度线 (内圈，介于罗马数字和希腊字母之间)
+    // 中间刻度线（菱形 + 小刻度）
     for (let i = 0; i < 60; i++) {
-        const angle = i * 6 * (Math.PI / 180);
-        const x = 140 * Math.sin(angle) + 200;
-        const y = -140 * Math.cos(angle) + 200;
-
         if (i % 5 === 0) {
-            // 对于每5分钟的刻度，使用棱形
             const diamond = document.createElement('div');
             diamond.className = (i === 45) ? 'clock-diamond-highlight' : 'clock-diamond';
             diamond.style.position = 'absolute';
-            diamond.style.width = '8px';
-            diamond.style.height = '20px';
-            diamond.style.left = `${x}px`;
-            diamond.style.top = `${y}px`;
-            diamond.style.transform = `translate(-50%, -50%) rotate(${i * 6 + 180}deg)`;
-            diamond.style.transformOrigin = '50% 50%';
-            diamond.style.clipPath = 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)'; // 棱形形状
             clock.appendChild(diamond);
-        } else {
-            // 对于其他刻度，保持原有的线条样式
-            const tick = document.createElement('div');
-            tick.className = 'clock-tick-mark';
-            tick.style.position = 'absolute';
-            tick.style.width = '0.5px';
-            tick.style.height = '9.5px'; // 所有非5分钟刻度统一使用小刻度
-            tick.style.left = `${x}px`;
-            tick.style.top = `${y}px`;
-            tick.style.transform = `translate(-50%, -100%) rotate(${i * 6}deg)`;
-            clock.appendChild(tick);
+        } else if (i % 5 === 2) {
+            const smallTick = document.createElement('div');
+            smallTick.className = 'clock-small-mark';
+            smallTick.style.position = 'absolute';
+            clock.appendChild(smallTick);
         }
     }
 
     return createRotatingContainers();
 }
 
-// 创建旋转容器
 function createRotatingContainers() {
-    // 创建两个可旋转的容器
+    const clock = window.clock;
+
     const romanContainer = document.createElement('div');
     romanContainer.className = 'rotating-container roman-container';
     romanContainer.style.position = 'absolute';
-    romanContainer.style.width = '260px';
-    romanContainer.style.height = '260px';
     romanContainer.style.left = '50%';
     romanContainer.style.top = '50%';
     romanContainer.style.transform = 'translate(-50%, -50%)';
@@ -145,91 +103,37 @@ function createRotatingContainers() {
     const greekContainer = document.createElement('div');
     greekContainer.className = 'rotating-container greek-container';
     greekContainer.style.position = 'absolute';
-    greekContainer.style.width = '360px';
-    greekContainer.style.height = '360px';
     greekContainer.style.left = '50%';
     greekContainer.style.top = '50%';
     greekContainer.style.transform = 'translate(-50%, -50%)';
     clock.appendChild(greekContainer);
 
-    // 创建罗马数字标记
     createSymbolMarkers(romanContainer, symbols, 130, 30);
-
-    // 创建希腊字母标记
     createSpecialSymbolMarkers(greekContainer, specialSymbols, 180, 14.4);
 
     return { romanContainer, greekContainer };
 }
 
-// 创建符号标记
 function createSymbolMarkers(container, symbols, radius, angleStep) {
     symbols.forEach((symbol, i) => {
-        const angle = i * angleStep * (Math.PI / 180);
-        const x = radius * Math.sin(angle) + radius;
-        const y = -radius * Math.cos(angle) + radius;
-
         const marker = document.createElement('div');
         marker.className = 'clock-marker';
-        marker.textContent = symbol;
-        marker.style.width = '40px';
-        marker.style.fontSize = '24px';
         marker.style.position = 'absolute';
-        marker.style.left = `${x - 20}px`;
-        marker.style.top = `${y - 12}px`;
-        marker.style.transform = `rotate(${i * angleStep}deg)`;
-        marker.style.transformOrigin = '20px 12px';
+        marker.textContent = symbol;
         container.appendChild(marker);
     });
 }
 
-// 创建特殊符号标记（希腊字母）
 function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
-    symbols.forEach((symbol, i) => {
-        const angle = i * angleStep * (Math.PI / 180);
-        const x = radius * Math.sin(angle) + radius;
-        const y = -radius * Math.cos(angle) + radius;
-
+    symbols.forEach(symbol => {
         const marker = document.createElement('div');
         marker.className = 'clock-marker';
         marker.style.position = 'absolute';
-        marker.style.width = '40px';
-        marker.style.fontSize = '24px';
-        marker.style.left = `${x - 20}px`;
-        marker.style.top = `${y - 12}px`;
-        marker.style.transform = `rotate(${i * angleStep}deg)`;
-        marker.style.transformOrigin = '20px 12px';
+        marker.textContent = symbol;
 
-        // 特殊处理最后一个叠加字符
-        if (symbol === 'OVERLAY_CHAR') {
-            marker.style.width = '40px';
-            marker.style.height = '24px';
-            marker.style.display = 'flex';
-            marker.style.justifyContent = 'center';
-            marker.style.alignItems = 'center';
-
-            // 创建十字符号
-            const cross = document.createElement('span');
-            cross.textContent = '☩';
-            cross.style.position = 'absolute';
-            cross.style.fontSize = '24px';
-            cross.style.zIndex = '2';
-            cross.style.top = '-2px';
-
-            // 创建数字0
-            const zero = document.createElement('span');
-            zero.textContent = '◯';
-            zero.style.position = 'absolute';
-            zero.style.fontSize = '24px';
-            zero.style.zIndex = '1';
-            zero.style.top = '-2px';
-
-            // 添加到叠加容器
-            marker.appendChild(cross);
-            marker.appendChild(zero);
-        } else {
-            marker.textContent = symbol;
+        if (symbol === '☯') {
+            marker.className += ' highlight';
         }
-
         container.appendChild(marker);
     });
 }
@@ -240,67 +144,221 @@ function updateClock(duration = 0) {
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    // 获取旋转容器
     const romanContainer = document.querySelector('.roman-container');
     const greekContainer = document.querySelector('.greek-container');
+    if (!romanContainer || !greekContainer) return;
 
-    // 计算旋转角度
-    // 最左边是指示器，所以加270。旋转方向需要是顺时针的，所以加负号
-    // 外圈分钟，内圈小时
-    const romanAngle = 270 - (hours * 30 + minutes * 0.5);
+    const romanAngle = -90 - (hours * 30 + minutes * 0.5);
     const greekAngle = 270 + (minutes * 6 + seconds * 0.1);
 
-    // 设置动态过渡时长（单位：秒）
     const durationSeconds = duration / 1000;
 
     [romanContainer, greekContainer].forEach(container => {
         container.style.transition = `transform ${durationSeconds}s linear`;
     });
 
-    // 应用旋转角度
     romanContainer.style.transform = `translate(-50%, -50%) rotate(${romanAngle}deg)`;
     greekContainer.style.transform = `translate(-50%, -50%) rotate(${greekAngle}deg)`;
 }
 
-// 获取当前屏幕尺寸
-function adjustClockSize() {
-    const windowWidth = window.innerWidth;
-    const windowHeight = window.innerHeight;
-
-    // 根据窗口大小计算缩放比例
-    const scale = Math.min(windowWidth / 250, windowHeight / 200);
-    globalScale = scale; // 如果你需要别处使用
-
+// 传入scale后，调整时钟内部所有元素大小和位置，保持居中不改container top/right
+function adjustClockSize(scale) {
     const clockContainer = document.querySelector('.clock-container');
-    clockContainer.style.transform = `scale(${scale})`;
+    const clock = window.clock;
+    if (!clockContainer || !clock) return;
 
-    // 设置子元素的宽高并移动元素
-    setupClockContainer(clockContainer);
-}
+    // clock占满container
+    clock.style.width = '100%';
+    clock.style.height = '100%';
+    clock.style.position = 'relative';
 
+    // 以.clock容器中心为圆心，计算所有元素位置
+    const clockWidth = clock.clientWidth;
+    const clockHeight = clock.clientHeight;
+    const centerX = clockWidth / 2;
+    const centerY = clockHeight / 2;
 
-// 设置时钟容器
-function setupClockContainer(clockContainer) {
-    // 如果时钟容器内已有clock元素则不添加
-    if (!document.getElementById('clock')) {
-        const clock = document.createElement('div');
-        clock.id = 'clock';
-        clock.style.width = '100%';
-        clock.style.height = '100%';
-        clock.style.position = 'relative';
+    // 大圆圈
+    const borderCircle = clock.querySelector('.clock-circle-dial:nth-child(1)');
+    if (borderCircle) {
+        const size = 380 * scale;
+        borderCircle.style.width = size + 'px';
+        borderCircle.style.height = size + 'px';
+        borderCircle.style.position = 'absolute';
+        borderCircle.style.left = (centerX - size / 2) + 'px';
+        borderCircle.style.top = (centerY - size / 2) + 'px';
+    }
 
-        clockContainer.appendChild(clock);
+    // 外圈刻度线
+    const ticks = clock.querySelectorAll('.clock-tick-mark');
+    for (let i = 0; i < 60; i++) {
+        const tick = ticks[i];
+        if (!tick) continue;
 
-        // 移动所有时钟元素到新的clock元素中
-        const elements = document.querySelectorAll('.clock-container > div:not(#clock)');
-        elements.forEach(el => {
-            clock.appendChild(el);
+        const angle = i * 6 * Math.PI / 180;
+        const radius = 187 * scale;
+        const x = centerX + radius * Math.sin(angle);
+        const y = centerY - radius * Math.cos(angle);
+
+        tick.style.width = (0.5 * scale) + 'px';
+        tick.style.height = (6 * scale) + 'px';
+        tick.style.position = 'absolute';
+        tick.style.left = x + 'px';
+        tick.style.top = y + 'px';
+        tick.style.transformOrigin = 'center center';
+        tick.style.transform = `translate(-50%, -50%) rotate(${i * 6}deg)`;
+    }
+
+    // 两个实线圆圈
+    const circles = clock.querySelectorAll('.clock-circle-dial:not(:first-child)');
+    if (circles.length >= 2) {
+        const sizes = [281, 301];
+        circles.forEach((circle, idx) => {
+            const size = sizes[idx] * scale;
+            circle.style.width = size + 'px';
+            circle.style.height = size + 'px';
+            circle.style.position = 'absolute';
+            circle.style.left = (centerX - size / 2) + 'px';
+            circle.style.top = (centerY - size / 2) + 'px';
         });
+    }
+
+    // 内圈刻度线（共12个，起始角度 45°，间隔 30°）
+    const smallTicks = clock.querySelectorAll('.clock-small-mark');
+    for (let i = 0; i < 12; i++) {
+        const tick = smallTicks[i];
+        if (!tick) continue;
+
+        const angleDeg = 45 + i * 30; // 从1点和2点之间开始，绕一圈
+        const angle = angleDeg * Math.PI / 180;
+        const radius = 145.5 * scale;
+
+        const x = centerX + radius * Math.sin(angle);
+        const y = centerY - radius * Math.cos(angle);
+
+        tick.style.width = (0.5 * scale) + 'px';
+        tick.style.height = (10 * scale) + 'px';
+        tick.style.position = 'absolute';
+        tick.style.left = x + 'px';
+        tick.style.top = y + 'px';
+        tick.style.transformOrigin = 'center center';
+        tick.style.transform = `translate(-50%, -50%) rotate(${angleDeg}deg)`;
+    }
+
+
+    // 菱形刻度
+    const diamonds = clock.querySelectorAll('.clock-diamond, .clock-diamond-highlight');
+    for (let i = 0; i < diamonds.length; i++) {
+        const diamond = diamonds[i];
+        if (!diamond) continue;
+
+        const angle = i * 30 * Math.PI / 180;
+        const radius = 140 * scale;
+        const x = centerX + radius * Math.sin(angle);
+        const y = centerY - radius * Math.cos(angle);
+
+        diamond.style.width = (8 * scale) + 'px';
+        diamond.style.height = (20 * scale) + 'px';
+        diamond.style.position = 'absolute';
+        diamond.style.left = x + 'px';
+        diamond.style.top = y + 'px';
+        diamond.style.transformOrigin = 'center center';
+        diamond.style.transform = `translate(-50%, -50%) rotate(${i * 30 + 180}deg)`;
+    }
+
+    // 旋转容器尺寸和位置
+    const romanContainer = clock.querySelector('.roman-container');
+    if (romanContainer) {
+        const size = 260 * scale;
+        romanContainer.style.width = size + 'px';
+        romanContainer.style.height = size + 'px';
+        romanContainer.style.position = 'absolute';
+        romanContainer.style.left = centerX + 'px';
+        romanContainer.style.top = centerY + 'px';
+        romanContainer.style.transformOrigin = 'center center';
+        romanContainer.style.transform = 'translate(-50%, -50%)';
+    }
+
+    const greekContainer = clock.querySelector('.greek-container');
+    if (greekContainer) {
+        const size = 360 * scale;
+        greekContainer.style.width = size + 'px';
+        greekContainer.style.height = size + 'px';
+        greekContainer.style.position = 'absolute';
+        greekContainer.style.left = centerX + 'px';
+        greekContainer.style.top = centerY + 'px';
+        greekContainer.style.transformOrigin = 'center center';
+        greekContainer.style.transform = 'translate(-50%, -50%)';
+    }
+
+    // 罗马数字字体和位置
+    if (romanContainer) {
+        const romanMarkers = romanContainer.querySelectorAll('.clock-marker');
+        romanMarkers.forEach((marker, i) => {
+            const angleStep = 30;
+            const radius = 130 * scale;
+            const angle = i * angleStep * Math.PI / 180;
+
+            const x = radius * Math.sin(angle) + radius;
+            const y = radius - radius * Math.cos(angle);
+
+            marker.style.fontSize = (24 * scale) + 'px';
+            marker.style.width = (40 * scale) + 'px';
+            marker.style.position = 'absolute';
+            marker.style.textAlign = 'center';
+            marker.style.left = (x - 20 * scale) + 'px';
+            marker.style.top = (y - 12 * scale) + 'px';
+            marker.style.transform = `rotate(${i * angleStep}deg)`;
+            marker.style.transformOrigin = `${20 * scale}px ${12 * scale}px`;
+        });
+    }
+
+    // 希腊字母字体和位置
+    if (greekContainer) {
+        const greekMarkers = greekContainer.querySelectorAll('.clock-marker');
+        greekMarkers.forEach((marker, i) => {
+            const angleStep = 14.4;
+            const radius = 180 * scale;
+            const angle = i * angleStep * Math.PI / 180;
+
+            const x = radius * Math.sin(angle) + radius;
+            const y = radius - radius * Math.cos(angle);
+
+            marker.style.fontSize = (24 * scale) + 'px';
+            marker.style.width = (40 * scale) + 'px';
+            marker.style.position = 'absolute';
+            marker.style.textAlign = 'center';
+            marker.style.left = (x - 20 * scale) + 'px';
+            marker.style.top = (y - 12 * scale) + 'px';
+            marker.style.transform = `rotate(${i * angleStep}deg)`;
+            marker.style.transformOrigin = `${20 * scale}px ${12 * scale}px`;
+
+            if (marker.textContent === '') {
+                marker.querySelectorAll('span').forEach(span => {
+                    span.style.fontSize = (24 * scale) + 'px';
+                });
+            }
+        });
+    }
+
+    // 更新时间覆盖层
+    const timeOverlay = document.getElementById('clock-time-overlay');
+    if (timeOverlay) {
+        timeOverlay.style.fontSize = (55 * scale) + 'px';
+        timeOverlay.style.position = 'absolute';
     }
 }
 
-// 在页面加载完成后
-document.addEventListener('DOMContentLoaded', initialize);
+function onResize() {
+    const container = document.querySelector('.clock-container');
+    if (!container) return;
 
-// 窗口大小改变时重新调整
-window.addEventListener('resize', adjustClockSize);
+    const windowScale = Math.min(window.innerHeight / 210, window.innerHeight / 180);
+
+    if (windowScale === previousScale) return; // 如果缩放比例没有变化，则不更新
+    adjustClockSize(windowScale);
+    previousScale = windowScale;
+}
+
+document.addEventListener('DOMContentLoaded', initialize);
+window.addEventListener('resize', onResize);

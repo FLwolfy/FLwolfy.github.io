@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f1b46e;
+    background: #165965;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3305,20 +3305,23 @@ body,
   font-family: 'Noto Sans SC', 'Noto Sans', 'Microsoft YaHei', sans-serif;
 }
 body {
-  background: #332279 url("/images/core/background.jpg") no-repeat center center fixed;
-  background-size: cover;
   position: relative;
+  background-color: #332279;
+  background: url("/images/core/background.jpg") no-repeat center center fixed;
+  background-size: cover;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
 body::before {
   content: '';
   position: fixed;
+  display: block;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(40,0,60,0.5);
   z-index: -5;
+  pointer-events: none;
 }
 .headband {
   display: none !important;
