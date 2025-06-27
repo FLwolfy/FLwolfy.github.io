@@ -40,7 +40,7 @@ function initialize() {
 
     // 确保时钟容器在背景层
     clockContainer.style.position = 'fixed';
-    clockContainer.style.zIndex = '-2';
+    clockContainer.style.zIndex = '-10';
     clockContainer.style.width = '400px';
     clockContainer.style.height = '400px';
     clockContainer.style.transformOrigin = '50% 50%';
@@ -213,11 +213,11 @@ function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
             cross.style.position = 'absolute';
             cross.style.fontSize = '24px';
             cross.style.zIndex = '2';
-            cross.style.top = '-3px';
+            cross.style.top = '-2px';
 
             // 创建数字0
             const zero = document.createElement('span');
-            zero.textContent = '⬤';
+            zero.textContent = '◯';
             zero.style.position = 'absolute';
             zero.style.fontSize = '24px';
             zero.style.zIndex = '1';

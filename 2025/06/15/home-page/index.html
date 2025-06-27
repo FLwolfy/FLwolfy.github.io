@@ -32,7 +32,7 @@
 <meta property="og:description" content="欢迎来到 FLwolfy 的博客，这里分享编程、游戏和生活的点滴。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-15T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-27T06:23:46.615Z">
+<meta property="article:modified_time" content="2025-06-27T10:43:59.094Z">
 <meta property="article:author" content="FLwolfy">
 <meta property="article:tag" content="其他">
 <meta name="twitter:card" content="summary">
@@ -247,73 +247,112 @@
 </div>
 
 <script>
-  const digitalClock = document.getElementById('custom-clock');
-  const widgetWrap = document.querySelector('.time-widget-wrap');
-  let collapsed = false;
+  const elementCache = new Map();
 
-  function updateTime() {
-    const now = new Date();
-    const h = now.getHours().toString().padStart(2, '0');
-    const m = now.getMinutes().toString().padStart(2, '0');
-    const s = now.getSeconds().toString().padStart(2, '0');
-    digitalClock.textContent = `${h}:${m}:${s}`;
-    digitalClock.classList.add('update');
-    setTimeout(() => digitalClock.classList.remove('update'), 300);
+  function getElement(name) {
+    if (elementCache.has(name) && elementCache.get(name)) return elementCache.get(name);
+
+    let el = null;
+    if (name.startsWith('#')) {
+      el = document.getElementById(name.slice(1));
+    } else if (name.startsWith('.')) {
+      el = document.querySelector(name);
+    } else {
+      console.warn(`未知选择器名：${name}`);
+    }
+
+    elementCache.set(name, el);
+    return el;
   }
 
-  updateTime();
-  setInterval(updateTime, 1000);
+  let defaultClockRightPosPercentage = 0;
+  let collapsed = false;
+  let clockTimeout = null;
+  let clockInterval = null;
 
-  widgetWrap.addEventListener('click', e => {
-    e.stopPropagation();
-    collapsed = !collapsed;
-    toggleStates(collapsed);
-  });
-
-  document.addEventListener('click', () => {
-    if (collapsed) {
-      collapsed = false;
-      toggleStates(collapsed);
+  function updateDigitalClock() {
+    const clock = getElement('#custom-clock');
+    if (clock) {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      clock.textContent = `${h}:${m}:${s}`;
     }
-  });
+  }
+
+  function updateOverlayTime() {
+    const overlay = getElement('#clock-time-overlay');
+    if (overlay) {
+      const now = new Date();
+      overlay.textContent = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+    }
+  }
 
   function toggleStates(collapse) {
-    collapsed = collapse; // 更新状态
+    collapsed = collapse;
 
-    // 控制 main-inner
-    const mainInner = document.querySelector('.main-inner');
+    const mainInner = getElement('.main-inner');
+    const clockContainer = getElement('.clock-container');
+    const overlay = getElement('#clock-time-overlay');
+    const sidebar = getElement('.sidebar');
+
     if (mainInner) {
       mainInner.style.transition = 'transform 0.5s ease';
       mainInner.style.transform = collapse ? 'translateY(-100%)' : 'translateY(0)';
       mainInner.style.pointerEvents = collapse ? 'none' : 'auto';
     }
 
-    // 控制 clock-container 平移
-    const clockContainer = document.querySelector('.clock-container');
-    if (clockContainer) {
-      clockContainer.style.transition = 'right 0.5s ease';
-      clockContainer.style.right = collapse ? '10%' : '-30%';
-      clockContainer.style.zIndex = collapse ? '0' : '-2';
+    if (overlay) {
+      if (collapse) {
+        updateOverlayTime();
+        overlay.classList.add('show');
+
+        const delay = 60000 - (Date.now() % 60000);
+        clockTimeout = setTimeout(() => {
+          updateOverlayTime();
+          clockInterval = setInterval(updateOverlayTime, 60000);
+        }, delay);
+      } else {
+        overlay.classList.remove('show');
+        clearTimeout(clockTimeout);
+        clearInterval(clockInterval);
+        clockTimeout = null;
+        clockInterval = null;
+      }
     }
 
-    // 控制时间显示
-    const overlay = document.getElementById('clock-time-overlay');
-    if (!overlay) return;
+    if (clockContainer) {
+      if (!defaultClockRightPosPercentage) {
+        const rightPx = parseFloat(getComputedStyle(clockContainer).right);
+        defaultClockRightPosPercentage = rightPx / window.innerWidth * 100;
+      }
 
-    if (collapse) {
-      const now = new Date();
-      const hh = String(now.getHours()).padStart(2, '0');
-      const mm = String(now.getMinutes()).padStart(2, '0');
-      overlay.textContent = `${hh}:${mm}`;
-      overlay.classList.add('show');
-    } else {
-      overlay.classList.remove('show');
+      const overlayRight = overlay?.getBoundingClientRect().right || 0;
+      const deltaPercentage = (overlayRight * 1.05 - window.innerWidth) / window.innerWidth * 100;
+
+      clockContainer.style.transition = 'right 0.5s ease';
+      clockContainer.style.right = collapse
+        ? `${defaultClockRightPosPercentage + deltaPercentage}%`
+        : `${defaultClockRightPosPercentage}%`;
+      clockContainer.style.zIndex = collapse ? '-4' : '-6';
     }
   }
 
+  setInterval(updateDigitalClock, 1000);
 
+  document.addEventListener('click', (e) => {
+    const widgetWrap = getElement('.time-widget-wrap');
+    if (!widgetWrap) return;
+
+    if (widgetWrap.contains(e.target)) {
+      e.stopPropagation();
+      toggleStates(!collapsed);
+    } else if (collapsed) {
+      toggleStates(false);
+    }
+  });
 </script>
-
 
         </div>
       </div>
@@ -378,7 +417,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-06-27 06:23:46" itemprop="dateModified" datetime="2025-06-27T06:23:46+00:00">2025-06-27</time>
+      <time title="修改时间：2025-06-27 10:43:59" itemprop="dateModified" datetime="2025-06-27T10:43:59+00:00">2025-06-27</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -619,7 +658,7 @@
 <script type="text/javascript"
         color="255,255,255"
         opacity="0.9"
-        zIndex="-2"
+        zIndex="-10"
         count="200"
         src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
 </script>
