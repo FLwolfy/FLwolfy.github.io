@@ -110,11 +110,9 @@ NexT.motion.middleWares = {
     
     const clockContainer = document.querySelector('.clock-container');
     if (clock === 'enabled') {
-      let defaultRightAmount = clockContainer.style.right;
       clockContainer.style.opacity = '0';
-      clockContainer.style.transition = `right ${10 * CONFIG.motion.duration}ms ease, opacity ${10 * CONFIG.motion.duration}ms ease`;
+      clockContainer.style.transition = `opacity ${10 * CONFIG.motion.duration}ms ease`;
       requestAnimationFrame(() => {
-        clockContainer.style.right = defaultRightAmount;
         clockContainer.style.opacity = '1';
       });
     }
