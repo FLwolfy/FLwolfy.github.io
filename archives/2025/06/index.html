@@ -340,9 +340,12 @@
     const widgetWrap = getElement('.time-widget-wrap');
     if (!widgetWrap) return;
 
+    const sidebarToggle = getElement('.sidebar-toggle');
+    const isSidebarToggleVisible = sidebarToggle && window.getComputedStyle(sidebarToggle).display !== 'none';
+
     if (widgetWrap.contains(e.target)) {
       e.stopPropagation();
-      toggleStates(!collapsed);
+      toggleStates(!collapsed && !isSidebarToggleVisible);
     } else if (collapsed) {
       toggleStates(false);
     }

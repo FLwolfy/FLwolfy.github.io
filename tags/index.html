@@ -32,7 +32,7 @@
 <meta property="og:description" content="综合展示本站所有文章的分类与标签，支持图像分类卡片与动态标签云，帮助你快速定位感兴趣的内容。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-06-25T00:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-27T12:07:17.182Z">
+<meta property="article:modified_time" content="2025-06-27T12:33:30.971Z">
 <meta property="article:author" content="FLwolfy">
 <meta name="twitter:card" content="summary">
 
@@ -345,9 +345,12 @@
     const widgetWrap = getElement('.time-widget-wrap');
     if (!widgetWrap) return;
 
+    const sidebarToggle = getElement('.sidebar-toggle');
+    const isSidebarToggleVisible = sidebarToggle && window.getComputedStyle(sidebarToggle).display !== 'none';
+
     if (widgetWrap.contains(e.target)) {
       e.stopPropagation();
-      toggleStates(!collapsed);
+      toggleStates(!collapsed && !isSidebarToggleVisible);
     } else if (collapsed) {
       toggleStates(false);
     }
