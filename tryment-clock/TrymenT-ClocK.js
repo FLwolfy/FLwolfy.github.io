@@ -33,8 +33,10 @@ function initialize() {
 
     createClockElements();
     adjustClockSize();
-    updateClock(0); // 初始更新
-    setInterval(() => updateClock(1000), 500); // 每500毫秒更新一次
+
+    const updateInterval = 5000; // 每5秒更新一次
+    updateClock(updateInterval); // 初始更新
+    setInterval(() => updateClock(updateInterval), updateInterval / 2);
 
     // 确保时钟容器在背景层
     clockContainer.style.position = 'fixed';

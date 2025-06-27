@@ -107,14 +107,15 @@ NexT.motion.middleWares = {
     }
 
     animate(post_block, document.querySelectorAll('.main-inner'), "1");
-    const clockContainer = document.querySelector('.clock-container');
     
+    const clockContainer = document.querySelector('.clock-container');
     if (clock === 'enabled') {
       let defaultRightAmount = clockContainer.style.right;
-      clockContainer.style.right = '-100%';
-      clockContainer.style.transition = `right ${10 * CONFIG.motion.duration}ms ease`;
+      clockContainer.style.opacity = '0';
+      clockContainer.style.transition = `right ${10 * CONFIG.motion.duration}ms ease, opacity ${10 * CONFIG.motion.duration}ms ease`;
       requestAnimationFrame(() => {
         clockContainer.style.right = defaultRightAmount;
+        clockContainer.style.opacity = '1';
       });
     }
 
