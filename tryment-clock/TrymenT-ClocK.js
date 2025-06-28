@@ -33,8 +33,8 @@ function initialize() {
     onResize();
 
     const updateInterval = 5000;
-    updateClock(updateInterval);
-    setInterval(() => updateClock(updateInterval), updateInterval / 2);
+    updateClock(updateInterval, true);
+    setInterval(() => updateClock(updateInterval, true), updateInterval / 2);
 
     console.log('Welcome to Tryment Clock');
 }
@@ -138,7 +138,8 @@ function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
     });
 }
 
-function updateClock(duration = 0) {
+// ✅ 修改：加入 withAnimation 参数
+function updateClock(duration = 0, withAnimation = true) {
     const now = new Date();
     const hours = now.getHours() % 12;
     const minutes = now.getMinutes();
@@ -153,9 +154,15 @@ function updateClock(duration = 0) {
 
     const durationSeconds = duration / 1000;
 
-    [romanContainer, greekContainer].forEach(container => {
-        container.style.transition = `transform ${durationSeconds}s linear`;
-    });
+    if (withAnimation) {
+        [romanContainer, greekContainer].forEach(container => {
+            container.style.transition = `transform ${durationSeconds}s linear`;
+        });
+    } else {
+        [romanContainer, greekContainer].forEach(container => {
+            container.style.transition = 'none';
+        });
+    }
 
     romanContainer.style.transform = `translate(-50%, -50%) rotate(${romanAngle}deg)`;
     greekContainer.style.transform = `translate(-50%, -50%) rotate(${greekAngle}deg)`;
@@ -358,6 +365,9 @@ function onResize() {
     if (windowScale === previousScale) return; // 如果缩放比例没有变化，则不更新
     adjustClockSize(windowScale);
     previousScale = windowScale;
+
+    // ✅ resize 之后更新角度，但不要动画
+    updateClock(0, false);
 }
 
 document.addEventListener('DOMContentLoaded', initialize);
