@@ -87,8 +87,6 @@
 
 /* 大时间显示在时钟中心 */
 .clock-time-overlay {
-  left: 50%;
-  top: 50%;
   transform: translate(-50%, -50%) scale(1);
   font-weight: bold;
   color: #fffacd;

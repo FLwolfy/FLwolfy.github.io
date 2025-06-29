@@ -287,7 +287,9 @@
   function toggleStates(collapse) {
     collapsed = collapse;
 
-    const mainInner = getElement('.main-inner');
+    // mainInner 比较特殊，需要每个页面刷新一次索引
+    const mainInner = document.querySelector('.main-inner');
+
     const clockContainer = getElement('.clock-container');
     const overlay = getElement('#clock-time-overlay');
     const sidebar = getElement('.sidebar');
@@ -323,12 +325,11 @@
         defaultClockRightPosPercentage = rightPx / window.innerWidth * 100;
       }
 
-      const overlayRight = overlay?.getBoundingClientRect().right || 0;
-      const deltaPercentage = (overlayRight * 1.05 - window.innerWidth) / window.innerWidth * 100;
+      const targetRight = overlay?.getBoundingClientRect().width / 2 || 0 
 
       clockContainer.style.transition = 'right 0.5s ease';
       clockContainer.style.right = collapse
-        ? `${defaultClockRightPosPercentage + deltaPercentage}%`
+        ? `${targetRight * 1.4}px`
         : `${defaultClockRightPosPercentage}%`;
       clockContainer.style.zIndex = collapse ? '-4' : '-6';
     }
@@ -343,6 +344,7 @@
     const sidebarToggle = getElement('.sidebar-toggle');
     const isSidebarToggleVisible = sidebarToggle && window.getComputedStyle(sidebarToggle).display !== 'none';
 
+    // 手机模式下，不允许显示时钟
     if (widgetWrap.contains(e.target)) {
       e.stopPropagation();
       toggleStates(!collapsed && !isSidebarToggleVisible);
