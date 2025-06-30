@@ -306,67 +306,67 @@
         a(H(), 7e3, 11)
     }
 
-    function R(r) {
-        const waifu = document.getElementById("waifu");
-        if (!waifu) {
-            setTimeout(() => R(r), 100);
-            return;
-        }
-
-        const maxScale = 1.0;
-        const minScale = Math.min(Math.max(r.minScale || 0.1, 0.1), maxScale);
-        const step = Math.min(Math.max(r.step || 0.05, 0.05), maxScale);
-        let scale = Math.min(Math.max(r.defaultScale ?? 1.0, minScale), maxScale);
-
-        waifu.style.transformOrigin = r.origin || "center center";
-        waifu.style.transform = `scale(${scale})`;
-
-        // 滚轮缩放
-        waifu.addEventListener("wheel", e => {
-            e.preventDefault();
-            if (e.deltaY > 0) {
-                scale = Math.max(minScale, scale - step);
-            } else if (e.deltaY < 0) {
-                scale = Math.min(maxScale, scale + step);
-            }
-            waifu.style.transform = `scale(${scale})`;
-        }, { passive: false });
-
-        // 触摸缩放
-        let lastDistance = null;
-        const getDistance = (t1, t2) =>
-            Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
-
-        waifu.addEventListener("touchstart", e => {
-            if (e.touches.length === 2) {
-                lastDistance = getDistance(e.touches[0], e.touches[1]);
-            }
-        }, { passive: false });
-
-        waifu.addEventListener("touchmove", e => {
-            if (e.touches.length === 2) {
-                e.preventDefault();
-                const newDistance = getDistance(e.touches[0], e.touches[1]);
-                if (lastDistance !== null) {
-                    const diff = newDistance - lastDistance;
-                    const sensitivity = step * 10;
-                    if (diff > 0) {
-                        scale = Math.min(maxScale, scale + sensitivity);
-                    } else if (diff < 0) {
-                        scale = Math.max(minScale, scale - sensitivity);
-                    }
-                    waifu.style.transform = `scale(${scale})`;
-                }
-                lastDistance = newDistance;
-            }
-        }, { passive: false });
-
-        waifu.addEventListener("touchend", e => {
-            if (e.touches.length < 2) {
-                lastDistance = null;
-            }
-        }, { passive: false });
+function R(r) {
+    const waifu = document.getElementById("waifu");
+    if (!waifu) {
+        setTimeout(() => R(r), 100);
+        return;
     }
+
+    const maxScale = 1.0;
+    const minScale = Math.min(Math.max(r.minScale || 0.1, 0.1), maxScale);
+    const step = Math.min(Math.max(r.step || 0.05, 0.01), maxScale);
+    let scale = Math.min(Math.max(r.defaultScale ?? 1.0, minScale), maxScale);
+
+    // 设置原点与动画效果
+    waifu.style.transformOrigin = r.origin || "center center";
+    waifu.style.transition = 'transform 0.1s ease-out';
+    waifu.style.transform = `scale(${scale})`;
+
+    // 滚轮缩放（兼容 Mac 触控板 & Windows 鼠标）
+    waifu.addEventListener("wheel", e => {
+        e.preventDefault();
+
+        // 对 deltaY 归一化，限制最大步进，防止轻轻一动就极限
+        const delta = Math.max(-100, Math.min(100, e.deltaY)); // 限制范围 [-100, 100]
+        const deltaScale = -delta * step * 0.01; // 缩放比例根据 deltaY 的比例变化
+
+        scale = Math.min(maxScale, Math.max(minScale, scale + deltaScale));
+        waifu.style.transform = `scale(${scale})`;
+    }, { passive: false });
+
+    // 触摸缩放
+    let lastDistance = null;
+    const getDistance = (t1, t2) =>
+        Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
+
+    waifu.addEventListener("touchstart", e => {
+        if (e.touches.length === 2) {
+            lastDistance = getDistance(e.touches[0], e.touches[1]);
+        }
+    }, { passive: false });
+
+    waifu.addEventListener("touchmove", e => {
+        if (e.touches.length === 2) {
+            e.preventDefault();
+            const newDistance = getDistance(e.touches[0], e.touches[1]);
+            if (lastDistance !== null) {
+                const diff = newDistance - lastDistance;
+                const sensitivity = step * 5; // 稍微降低敏感度
+                scale = Math.min(maxScale, Math.max(minScale, scale + Math.sign(diff) * sensitivity));
+                waifu.style.transform = `scale(${scale})`;
+            }
+            lastDistance = newDistance;
+        }
+    }, { passive: false });
+
+    waifu.addEventListener("touchend", e => {
+        if (e.touches.length < 2) {
+            lastDistance = null;
+        }
+    }, { passive: false });
+}
+
 
     window.initWidget = B;
     window.initResize = R; 
