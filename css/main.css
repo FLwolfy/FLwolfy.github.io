@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffff65;
+    background: #ffb155;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3398,6 +3398,13 @@ a:hover {
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   border-radius: 0 0 12px 12px;
 }
+.post-body a,
+.post-body a:hover,
+.post-body a:visited {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
 .post-body:not(.no-style) h1 {
   color: #d5aae2;
   display: flex;
@@ -3440,10 +3447,37 @@ a:hover {
 .post-body:not(.no-style) h2::after {
   margin-left: 16px;
 }
+.post-body:not(.no-style) h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #d5aae2;
+}
 .post-body:not(.no-style) h3::before {
+  content: "༺";
+  margin-right: 8px;
+  color: #9f84a7;
+  display: inline-block;
+}
+.post-body:not(.no-style) h3::after {
+  content: "༻";
+  margin-left: 8px;
+  color: #9f84a7;
+  display: inline-block;
+}
+.post-body:not(.no-style) h4 {
+  color: #d5aae2;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid #9f84a7;
+  padding-bottom: 4px;
+}
+.post-body:not(.no-style) h4::before {
   content: "❮";
   margin-right: 5px;
-  border-bottom: 1px solid #9f84a7;
+  color: #9f84a7;
 }
 .post-body:not(.no-style) h1 .header-anchor,
 .post-body:not(.no-style) h2 .header-anchor,
@@ -3467,6 +3501,26 @@ a:hover {
 .post-body:not(.no-style) blockquote * {
   font-size: 90%;
   color: #85c3fd;
+}
+.post-body:not(.no-style) hr {
+  background-image: none !important;
+  width: 15%;
+  border: none;
+  border-top: 1px solid rgba(159,132,167,0.6);
+  margin: 1em auto;
+}
+.post-body:not(.no-style) .img-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 1em 0;
+}
+.post-body:not(.no-style) .img-row img {
+  display: block;
+  border-radius: 8px;
+  border: none;
+  max-width: 100%;
 }
 @keyframes shake-it {
   0% {
