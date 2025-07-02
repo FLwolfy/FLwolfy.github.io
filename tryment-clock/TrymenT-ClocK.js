@@ -1,8 +1,10 @@
 const symbols = ['Ⅻ', 'Ⅰ', 'Ⅱ', 'Ⅲ', 'Ⅳ', 'Ⅴ', 'Ⅵ', 'Ⅶ', 'Ⅷ', 'Ⅸ', 'Ⅹ', 'Ⅺ'];
 const specialSymbols = ['Α', 'Β', 'Γ', 'Δ', 'Ε', 'Ζ', 'Η', 'Θ', 'Ι', 'Κ', 'Λ', 'Μ', 'Ν', 'Ξ', 'Ο', 'Π', 'Ρ', 'Σ', 'Τ', 'Υ', 'Φ', 'Χ', 'Ψ', 'Ω', '☯'].reverse();
-
 const baseSize = 400; // 基准尺寸，设计稿的大小
+
 let previousScale = 1; // 上一次的缩放比例
+let currentRomanAngle = 0;
+let currentGreekAngle = 0;
 
 function initialize() {
     let clockContainer = document.querySelector('.clock-container');
@@ -33,7 +35,7 @@ function initialize() {
     onResize();
 
     const updateInterval = 5000;
-    updateClock(updateInterval, true);
+    updateClock(0, false); // 初始更新时钟，不带动画
     setInterval(() => updateClock(updateInterval, true), updateInterval / 2);
 
     console.log('Welcome to Tryment Clock');
@@ -138,7 +140,6 @@ function createSpecialSymbolMarkers(container, symbols, radius, angleStep) {
     });
 }
 
-// ✅ 修改：加入 withAnimation 参数
 function updateClock(duration = 0, withAnimation = true) {
     const now = new Date();
     const hours = now.getHours() % 12;
@@ -149,23 +150,32 @@ function updateClock(duration = 0, withAnimation = true) {
     const greekContainer = document.querySelector('.greek-container');
     if (!romanContainer || !greekContainer) return;
 
-    const romanAngle = -90 - (hours * 30 + minutes * 0.5);
-    const greekAngle = 270 + (minutes * 6 + seconds * 0.1);
+    const targetRomanAngle = -90 - (hours * 30 + minutes * 0.5);              // 时针
+    const targetGreekAngle = 270 + (minutes * 6 + seconds * 0.1);             // 分秒针
 
     const durationSeconds = duration / 1000;
 
     if (withAnimation) {
-        [romanContainer, greekContainer].forEach(container => {
-            container.style.transition = `transform ${durationSeconds}s linear`;
-        });
+        romanContainer.style.transition = `transform ${durationSeconds}s linear`;
+        greekContainer.style.transition = `transform ${durationSeconds}s linear`;
     } else {
-        [romanContainer, greekContainer].forEach(container => {
-            container.style.transition = 'none';
-        });
+        romanContainer.style.transition = 'none';
+        greekContainer.style.transition = 'none';
     }
 
-    romanContainer.style.transform = `translate(-50%, -50%) rotate(${romanAngle}deg)`;
-    greekContainer.style.transform = `translate(-50%, -50%) rotate(${greekAngle}deg)`;
+    // 平滑角度差计算（避免360跳变）
+    function computeSmoothAngle(current, target) {
+        let delta = target - current;
+        delta = ((delta + 540) % 360) - 180; // 将差值限制在 [-180, 180]
+        return current + delta;
+    }
+
+    // 更新并设置 transform
+    currentRomanAngle = computeSmoothAngle(currentRomanAngle, targetRomanAngle);
+    romanContainer.style.transform = `translate(-50%, -50%) rotate(${currentRomanAngle}deg)`;
+
+    currentGreekAngle = computeSmoothAngle(currentGreekAngle, targetGreekAngle);
+    greekContainer.style.transform = `translate(-50%, -50%) rotate(${currentGreekAngle}deg)`;
 }
 
 // 传入scale后，调整时钟内部所有元素大小和位置，保持居中不改container top/right
@@ -366,7 +376,7 @@ function onResize() {
     adjustClockSize(windowScale);
     previousScale = windowScale;
 
-    // ✅ resize 之后更新角度，但不要动画
+    // resize 之后更新角度，但不要动画
     updateClock(0, false);
 }
 
