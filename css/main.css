@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #00cf8e;
+    background: #059dff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3504,7 +3504,7 @@ a:hover {
 }
 .post-body:not(.no-style) hr {
   background-image: none !important;
-  width: 15%;
+  width: 35%;
   border: none;
   border-top: 1px solid rgba(159,132,167,0.6);
   margin: 1em auto;
