@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff6245;
+    background: #e3f7bd;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3517,12 +3517,18 @@ a:hover {
   margin: 1em 0;
 }
 .post-body:not(.no-style) .img-row img {
+  height: 10rem;
   display: block;
   border: none;
-  height: auto;
   width: auto;
   object-fit: contain;
   margin: 0 !important;
+  box-shadow: 0 0 15px 5px rgba(255,105,180,0.6);
+  border-radius: 6px;
+  transition: box-shadow 0.3s ease;
+}
+.post-body:not(.no-style) .img-row img:hover {
+  box-shadow: 0 0 25px 10px rgba(255,105,180,0.8);
 }
 @keyframes shake-it {
   0% {
