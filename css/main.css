@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #b45c53;
+    background: #537a33;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3518,10 +3518,10 @@ a:hover {
 }
 .post-body:not(.no-style) .img-row img {
   height: 10rem;
+  width: auto;
   display: block;
   border: none;
-  width: auto;
-  object-fit: contain;
+  object-fit: cover;
   margin: 0 !important;
   box-shadow: 0 0 15px 5px rgba(255,105,180,0.6);
   border-radius: 6px;
