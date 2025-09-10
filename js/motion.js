@@ -106,8 +106,10 @@ NexT.motion.middleWares = {
       });
     }
 
+    // 主内容
     animate(post_block, document.querySelectorAll('.main-inner'), "1");
     
+    // 背景时钟
     const clockContainer = document.querySelector('.clock-container');
     if (clock === 'enabled') {
       clockContainer.style.opacity = '0';
@@ -117,6 +119,7 @@ NexT.motion.middleWares = {
       });
     }
 
+    // 文章内容
     document.querySelectorAll('.post-block').forEach(targets => {
       sequence.push({
         targets,
@@ -128,6 +131,7 @@ NexT.motion.middleWares = {
       animate(post_body, targets.querySelectorAll('.post-body'));
     });
 
+    // 向导和评论
     animate(post_block, document.querySelectorAll('.pagination, .comments'));
 
     return sequence;
