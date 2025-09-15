@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ab2b87;
+    background: #ffffc7;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3307,7 +3307,7 @@ body,
 body {
   position: relative;
   background-color: #332279;
-  background: url("/images/core/background.jpg") no-repeat center center fixed;
+  background: url("/images/core/background.jpg") no-repeat center center;
   background-size: cover;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
