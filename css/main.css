@@ -1560,7 +1560,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #031b62;
+    background: #ff2229;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2762,7 +2762,7 @@ ul.breadcrumb li:last-child {
   gap: 16px;
   overflow-x: auto;
   padding: 12px 10px;
-  margin: 0 auto;
+  margin: 0 auto 30px auto;
   scrollbar-width: thin;
   scrollbar-color: #bbb transparent;
   justify-content: center;
