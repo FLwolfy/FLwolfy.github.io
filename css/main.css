@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fff;
+    background: #466eff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2247,6 +2247,89 @@ pre code {
   top: 1.25em;
   width: 4px;
 }
+.post-card {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(226,61,149,0.25);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 230px;
+}
+.post-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12), 0 0 25px 10px rgba(255,105,180,0.8); /* 荧光轮廓 */
+}
+.post-card-image {
+  position: relative; /* 让伪元素相对定位 */
+  flex: 0 0 30%;
+  overflow: hidden;
+  clip-path: polygon(0 0, 20px 10px, 10px 20px, 25px 30px, 10px 40px, 30px 50px, 20px 70px, 35px 50%, 15px 60%, 25px 70%, 10px 80%, 20px 90%, 0 100%, 100% 100%, 100% 0);
+}
+.post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.post-card-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(182,95,142,0.15);
+  pointer-events: none; /* 不影响点击 */
+  transition: background 0.3s ease;
+}
+.post-card:hover .post-card-image img {
+  transform: scale(1.1);
+}
+.post-card:hover .post-card-image::after {
+  background: rgba(255,255,255,0);
+}
+.post-card-content {
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.post-card-title {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+.post-card-title a {
+  text-decoration: none;
+}
+.post-card-excerpt {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  display: -webkit-box; /* 必须，用于多行截断 */
+  -webkit-box-orient: vertical; /* 必须，设置为垂直方向 */
+  -webkit-line-clamp: 2; /* 显示的最大行数，例如 3 行 */
+  overflow: hidden; /* 超出隐藏 */
+  text-overflow: ellipsis; /* 显示省略号 */
+}
+.post-card-meta {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+.post-card-btn {
+  align-self: flex-start;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: #fff;
+  background-color: #007acc;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.post-card-btn:hover {
+  background-color: #005fa3;
+}
 .post-body {
   font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
   overflow-wrap: break-word;
@@ -2745,7 +2828,7 @@ ul.breadcrumb li:last-child {
   gap: 8px;
   color: var(--brand-color);
   border-radius: 6px;
-  background-color: rgba(255,105,180,0.05);
+  background-color: rgba(255,105,180,0.1);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }
@@ -2755,7 +2838,7 @@ ul.breadcrumb li:last-child {
 }
 .cats-tags-container {
   text-align: center;
-  background: rgba(255,105,180,0.05);
+  background: rgba(255,105,180,0.1);
   border-radius: 12px;
 }
 .cats-tags-container a {
@@ -3402,6 +3485,12 @@ a:hover {
   -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
   border-radius: 0 0 12px 12px;
+}
+.post-card {
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  border-radius: 12px;
 }
 .post-body a,
 .post-body a:hover,
