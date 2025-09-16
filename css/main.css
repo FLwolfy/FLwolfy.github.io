@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #7805ff;
+    background: #17f10e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2128,7 +2128,7 @@ pre code {
 .use-motion .post-header {
   visibility: hidden;
 }
-.use-motion .post-body {
+.use-motion body:not(.home) .post-body {
   visibility: hidden;
 }
 .use-motion .collection-header {
