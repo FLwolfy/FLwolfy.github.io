@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #466eff;
+    background: #cf70ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2254,7 +2254,7 @@ pre code {
   margin-bottom: 20px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
-  height: 230px;
+  height: 150px;
 }
 .post-card:hover {
   transform: translateY(-8px);
@@ -2271,7 +2271,7 @@ pre code {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.8s ease;
 }
 .post-card-image::after {
   content: "";
@@ -2292,21 +2292,20 @@ pre code {
 }
 .post-card-content {
   flex: 1;
-  padding: 16px;
+  padding: 16px 16px 0 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 .post-card-title {
   font-size: 1.25rem;
-  margin: 0 0 8px;
+  margin: 0px;
 }
 .post-card-title a {
   text-decoration: none;
 }
 .post-card-excerpt {
   font-size: 0.95rem;
-  margin-bottom: 12px;
+  margin: 8px;
   display: -webkit-box; /* 必须，用于多行截断 */
   -webkit-box-orient: vertical; /* 必须，设置为垂直方向 */
   -webkit-line-clamp: 2; /* 显示的最大行数，例如 3 行 */
@@ -2315,20 +2314,24 @@ pre code {
 }
 .post-card-meta {
   font-size: 0.8rem;
-  margin-bottom: 8px;
+  margin: 0;
+  margin-top: auto;
+  opacity: 0.4;
 }
 .post-card-btn {
   align-self: flex-start;
-  padding: 6px 12px;
+  padding: 2px 4px;
   font-size: 0.85rem;
-  color: #fff;
-  background-color: #007acc;
+  background-color: #3a0050;
+  color: #d6c9ff;
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 6px;
   text-decoration: none;
-  transition: background-color 0.3s;
 }
 .post-card-btn:hover {
-  background-color: #005fa3;
+  background-color: #4c006a;
+  color: #a8a1ff;
+  border-color: rgba(255,255,255,0.2);
 }
 .post-body {
   font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
