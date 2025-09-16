@@ -231,7 +231,13 @@ body {
   min-height: 100%;
   position: relative;
   transition: padding 0.2s ease-in-out;
-  scrollbar-gutter: stable;
+  overflow-x: hidden;
+  width: 100vw;
+}
+@supports (overflow-x: clip) {
+  body {
+    overflow-x: clip;
+  }
 }
 h1,
 h2,
@@ -1560,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffffc7;
+    background: #7805ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3307,9 +3313,8 @@ body,
 body {
   position: relative;
   background-color: #332279;
-  background: url("/images/core/background.jpg") no-repeat center center;
+  background: url("/images/core/background.jpg") no-repeat center center fixed;
   background-size: cover;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
 }
 body::before {
   content: '';
