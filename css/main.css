@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #36fedf;
+    background: #91fffc;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2303,6 +2303,9 @@ pre code {
 .post-card-title {
   font-size: 1.25rem;
   margin: 0px;
+  text-decoration: underline !important; /* 强制下划线 */
+  text-decoration-thickness: 2px; /* 下划线粗细 */
+  text-underline-offset: 4px; /* 下划线距离文字的距离，可调 */
 }
 .post-card-title a {
   text-decoration: none;
