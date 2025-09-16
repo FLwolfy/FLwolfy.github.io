@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #cf70ff;
+    background: #36fedf;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2250,26 +2250,30 @@ pre code {
 .post-card {
   display: flex;
   flex-direction: row;
-  background-color: rgba(226,61,149,0.25);
+  background-color: rgba(226,61,149,0.2);
   margin-bottom: 20px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   height: 150px;
 }
 .post-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.12), 0 0 25px 10px rgba(255,105,180,0.8); /* 荧光轮廓 */
 }
 .post-card-image {
   position: relative; /* 让伪元素相对定位 */
   flex: 0 0 30%;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   clip-path: polygon(0 0, 20px 10px, 10px 20px, 25px 30px, 10px 40px, 30px 50px, 20px 70px, 35px 50%, 15px 60%, 25px 70%, 10px 80%, 20px 90%, 0 100%, 100% 100%, 100% 0);
 }
 .post-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform 0.8s ease;
 }
