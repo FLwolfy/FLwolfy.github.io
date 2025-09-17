@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ddff98;
+    background: #bb0a57;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2268,6 +2268,13 @@ pre code {
   position: relative;
   overflow: hidden;
   clip-path: polygon(0 0, 20px 6.6%, 10px 13.3%, 25px 20%, 10px 26.6%, 30px 33.3%, 20px 46.6%, 35px 50%, 15px 60%, 25px 70%, 10px 80%, 20px 90%, 0 100%, 100% 100%, 100% 0);
+/* 左侧渐变遮罩 */
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, #000 30%, #000 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, #000 30%, #000 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
 }
 .post-card-image a {
   display: block;
@@ -2281,13 +2288,6 @@ pre code {
   object-position: center;
   display: block;
   transition: transform 0.8s ease;
-/* 左侧渐变遮罩 */
-  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, #000 20%, #000 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-  mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, #000 20%, #000 100%);
-  mask-repeat: no-repeat;
-  mask-size: cover;
 }
 .post-card-image::after {
   content: "";
