@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff2;
+    background: #ffff94;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2316,6 +2316,8 @@ pre code {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+}
+.post-card-title a {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
