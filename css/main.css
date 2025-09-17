@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f9f1c4;
+    background: #ddff98;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2367,7 +2367,7 @@ pre code {
   max-width: 100vw;
   margin-top: auto;
   margin-bottom: 4rem;
-  height: 15rem; /* 可自定义高度 */
+  height: 12rem; /* 可自定义高度 */
   overflow: hidden;
   left: 50%;
   position: relative;
@@ -2380,10 +2380,10 @@ pre code {
   display: block;
   opacity: 0.75;
 /* 渐变透明效果 */
-  -webkit-mask-image: linear-gradient(to bottom, #000 80%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, rgba(0,0,0,0) 100%);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: cover;
-  mask-image: linear-gradient(to bottom, #000 80%, rgba(0,0,0,0) 100%);
+  mask-image: linear-gradient(to bottom, #000 70%, rgba(0,0,0,0) 100%);
   mask-repeat: no-repeat;
   mask-size: cover;
 }
