@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #9e61fa;
+    background: #a44bec;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2306,7 +2306,7 @@ pre code {
     height: 4rem;
   }
   .track-title {
-    font-size: 0.8rem;
+    font-size: 0.8rem !important;
     line-height: 1.25rem;
   }
   .track-content .track-meta-container .post-meta {
