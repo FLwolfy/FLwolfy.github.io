@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #77ffec;
+    background: #ffffd0;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2141,6 +2141,7 @@ pre code {
   position: relative;
   overflow: hidden;
   display: block;
+  padding: 1rem;
 /* ===== 上下 + 左右渐变遮罩 ===== */
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%), linear-gradient(to right, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
   -webkit-mask-repeat: no-repeat;
@@ -2150,6 +2151,17 @@ pre code {
   mask-repeat: no-repeat;
   mask-size: 100% 100%, 100% 100%;
   mask-composite: intersect;
+}
+.osu-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1rem solid rgba(255,255,255,0.8); /* 亮白色 */
+  pointer-events: none; /* 不阻挡交互 */
+  box-sizing: border-box;
 }
 .osu-wheel {
   position: absolute;
@@ -2277,6 +2289,7 @@ pre code {
   }
   .osu-wheel {
     position: absolute;
+    top: 30rem;
     width: 100%;
     height: 20rem;
     -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
@@ -2300,10 +2313,11 @@ pre code {
   }
 }
 .track-detail {
+  background: rgba(210,92,62,0.518);
   position: absolute;
-  top: 0;
-  right: 2%;
-  width: 38%;
+  top: 1rem;
+  right: 1%;
+  width: 37%;
   height: 100%; /* 整体撑满容器 */
   overflow: hidden;
   display: block;
@@ -2348,54 +2362,46 @@ pre code {
 }
 .track-card {
   position: absolute;
-  top: 30%; /* 紧贴封面下方 */
+  top: 30%;
   left: 0;
   width: 100%;
-  height: 70%; /* 3:7 */
-  padding: 1.2rem 2rem 2rem 2rem;
-  background: rgba(210,92,62,0.518);
+  height: 70%;
+  padding: 1.2rem 2rem 2.5rem 2rem;
   box-sizing: border-box;
-  display: block;
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
 }
-.track-card .track-title {
-  height: 10%;
+.track-title {
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: none;
-  overflow: hidden; /* 超出部分隐藏 */
-  text-overflow: ellipsis; /* 超出文字显示省略号 */
-  white-space: nowrap; /* 不换行 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* 一行标题 */
 }
 .track-meta {
-  width: 100%;
-  height: 15%;
-  max-height: 15%;
-  margin: 1.5% 0;
   font-size: 0.8rem;
   line-height: 1rem;
   color: #888;
-  align-items: center;
-  justify-content: center;
-  display: -webkit-box;
-  word-break: break-word; /* 强制长单词换行 */
-  white-space: normal;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  margin: 0.5rem 0;
 }
-.track-card .track-description {
+.track-description {
   font-size: 1rem;
   line-height: 1.5rem;
-  margin-top: 0;
-  max-height: 55%;
   overflow: hidden;
+  flex: 1 1 auto; /* 填充剩余空间 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 999; /* 无限行（999行即可） */
+  white-space: normal;
+  word-break: break-word;
 }
 .track-readmore {
-  display: flex; /* 改成 flex 布局 */
-  align-items: center; /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0.5rem 1%;
+  margin: 0 10%;
   font-size: 1.5rem;
   font-weight: 500;
   background-color: #3a0050;
@@ -2404,19 +2410,19 @@ pre code {
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
-  width: 98%;
-  height: 10%;
-  text-align: center; /* 备用，确保文字水平居中 */
+  width: 80%;
+  height: 2rem; /* 固定按钮高度 */
+  margin-top: auto; /* 推到底部 */
+  text-align: center;
 }
 .track-readmore:hover {
-  background-color: #4c006a; /* hover 背景色 */
-  transform: translateY(-1px); /* 小幅上移 */
+  background-color: #4c006a;
+  transform: translateY(-1px);
 }
 @media (max-width: 768px) {
   .track-detail {
     width: 98%;
     height: 28rem;
-    top: 20rem;
     right: 1%;
     -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
     -webkit-mask-repeat: no-repeat;
@@ -3190,6 +3196,7 @@ ul.breadcrumb li:last-child {
 }
 .cats-tags-container {
   text-align: center;
+  position: relative;
   background: rgba(255,105,180,0.1);
   border-radius: 0.75rem;
 /* 上下 + 左右渐变遮罩（缩小到 5%） */
@@ -3206,6 +3213,20 @@ ul.breadcrumb li:last-child {
   font-weight: bold;
   display: inline-block;
   margin: 0.625rem;
+}
+.cats-tags-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1rem solid transparent; /* 先设透明边框 */
+  border-radius: 1rem;
+  pointer-events: none;
+  box-sizing: border-box;
+/* 四边颜色不同 */
+  border-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.3) 100%) 1;
 }
 .category-collage-categories {
   display: flex;

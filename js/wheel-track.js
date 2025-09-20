@@ -61,6 +61,16 @@
       return { width: container.clientWidth, height: container.clientHeight };
     }
 
+    // ===========================
+    // 自动吸附函数
+    // ===========================
+    function startSnapTimer() {
+      if (snapTimer) clearTimeout(snapTimer);
+      snapTimer = setTimeout(() => {
+        targetOffset = Math.round(targetOffset);
+      }, CONFIG.snapDelay);
+    }
+
     // ================================
     // 渲染函数
     // ================================
@@ -126,9 +136,9 @@
       }
     }
 
-    // ================================
-    // 鼠标滚轮（方向修正 + 节流）
-    // ================================
+    // ===========================
+    // 鼠标滚轮
+    // ===========================
     container.addEventListener('wheel', e => {
       e.preventDefault();
       if (!wheelTicking) {
@@ -137,13 +147,14 @@
           targetOffset -= Math.sign(e.deltaY) * CONFIG.scrollSpeed;
           targetOffset = Math.max(0, Math.min(tracks.length - 1, targetOffset));
           wheelTicking = false;
+          startSnapTimer();
         });
       }
     }, { passive: false });
 
-    // ================================
+    // ===========================
     // 触屏拖动
-    // ================================
+    // ===========================
     container.addEventListener('touchstart', e => {
       if (e.touches.length !== 1) return;
       const trackEl = e.target.closest('.track');
@@ -152,13 +163,12 @@
       isTouchDragging = true;
       startY = e.touches[0].clientY;
       startOffset = targetOffset;
-      clearTimeout(snapTimer);
+      if (snapTimer) clearTimeout(snapTimer);
     }, { passive: true });
 
     container.addEventListener('touchmove', e => {
       if (!isTouchDragging || e.touches.length !== 1) return;
       e.preventDefault();
-
       if (!touchTicking) {
         touchTicking = true;
         requestAnimationFrame(() => {
@@ -173,7 +183,7 @@
     container.addEventListener('touchend', () => {
       if (!isTouchDragging) return;
       isTouchDragging = false;
-      snapTimer = setTimeout(() => targetOffset = Math.round(targetOffset), CONFIG.snapDelay);
+      startSnapTimer();
     });
 
     // ================================
