@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #d9d144;
+    background: #b1ff30;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2270,7 +2270,7 @@ pre code {
 }
 @media (max-width: 768px) {
   .osu-container {
-    height: 60rem;
+    height: 50rem;
   }
   .osu-wheel {
     position: absolute;
@@ -2402,7 +2402,7 @@ pre code {
 @media (max-width: 768px) {
   .track-detail {
     width: 98%;
-    height: 38rem;
+    height: 28rem;
     top: 20rem;
     right: 1%;
     -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);

@@ -6,7 +6,7 @@
     spacing: 12,          // 每条条目角度间隔（度数）
     radius: 300,          // 圆弧半径
     scrollSpeed: 0.1,     // 鼠标滚轮灵敏度
-    touchMoveFactor: 0.05,// 触屏滑动灵敏度
+    touchMoveFactor: 0.05,// 触屏/拖拽灵敏度
     opacityFactor: 0.2,   // 不透明度衰减因子
     scaleFactor: 1.5,     // 激活条目的缩放比例
     offsetX: 0,           // X 轴偏移
@@ -24,19 +24,17 @@
   let animationFrameId = null;
   let snapTimer = null;
   let detailTimer = null;
+  let isTouchDragging = false;
+  let isMouseDragging = false;
 
   // ================================
   // 主初始化函数
   // ================================
   function initOsuWheel() {
-    // ================================
-    // 清理上一次动画和定时器
-    // ================================
     if (animationFrameId) cancelAnimationFrame(animationFrameId);
     if (snapTimer) clearTimeout(snapTimer);
     if (detailTimer) clearTimeout(detailTimer);
     if (resizeObserver) resizeObserver.disconnect();
-
     lastActiveIndex = -1;
 
     const container = document.querySelector('.osu-wheel');
@@ -56,7 +54,6 @@
       track.style.transformOrigin = 'left center';
     });
 
-    // 获取容器尺寸
     function getDimensions() {
       return { width: container.clientWidth, height: container.clientHeight };
     }
@@ -123,7 +120,8 @@
     // ================================
     container.addEventListener('wheel', e => {
       e.preventDefault();
-      targetOffset += Math.sign(e.deltaY) * CONFIG.scrollSpeed;
+      // 调整方向：滚轮向下 offset 增加 → active track 下移
+      targetOffset -= Math.sign(e.deltaY) * CONFIG.scrollSpeed;
       targetOffset = Math.max(0, Math.min(tracks.length - 1, targetOffset));
 
       if (snapTimer) clearTimeout(snapTimer);
@@ -131,24 +129,34 @@
     }, { passive: false });
 
     // ================================
-    // 触屏
+    // 触屏拖动
     // ================================
     container.addEventListener('touchstart', e => {
       if (e.touches.length !== 1) return;
+      const trackEl = e.target.closest('.track');
+      if (!trackEl) return;
+
+      isTouchDragging = true;
       startY = e.touches[0].clientY;
       startOffset = targetOffset;
+
       if (snapTimer) clearTimeout(snapTimer);
     }, { passive: true });
 
     container.addEventListener('touchmove', e => {
+      if (!isTouchDragging) return;
       if (e.touches.length !== 1) return;
+
       e.preventDefault();
       const deltaY = e.touches[0].clientY - startY;
-      targetOffset = startOffset - deltaY * CONFIG.touchMoveFactor;
+      // 调整方向：向下拖动 offset 增加 → active track 下移
+      targetOffset = startOffset + deltaY * CONFIG.touchMoveFactor;
       targetOffset = Math.max(0, Math.min(tracks.length - 1, targetOffset));
     }, { passive: false });
 
     container.addEventListener('touchend', () => {
+      if (!isTouchDragging) return;
+      isTouchDragging = false;
       snapTimer = setTimeout(() => targetOffset = Math.round(targetOffset), CONFIG.snapDelay);
     });
 
@@ -190,9 +198,7 @@
     render();
   }
 
-  // ================================
   // 页面加载 / PJAX 切换
-  // ================================
   window.addEventListener('load', initOsuWheel);
   document.addEventListener('pjax:complete', initOsuWheel);
 
