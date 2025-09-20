@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ffffd0;
+    background: #a26c36;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2142,6 +2142,7 @@ pre code {
   overflow: hidden;
   display: block;
   padding: 1rem;
+  transform: translateX(-1rem);
 /* ===== 上下 + 左右渐变遮罩 ===== */
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%), linear-gradient(to right, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
   -webkit-mask-repeat: no-repeat;
