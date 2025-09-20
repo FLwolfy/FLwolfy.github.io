@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #0b7421;
+    background: #d9d144;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2135,11 +2135,12 @@ pre code {
   visibility: hidden;
 }
 .osu-container {
-  height: 40rem; /* 可自行调整 */
+  height: 30rem; /* 可自行调整 */
   width: 100%;
   background: rgba(255,140,0,0.1);
   position: relative;
   overflow: hidden;
+  display: block;
 /* ===== 上下 + 左右渐变遮罩 ===== */
   -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%), linear-gradient(to right, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
   -webkit-mask-repeat: no-repeat;
@@ -2267,6 +2268,24 @@ pre code {
   opacity: 1;
   color: #ffc267;
 }
+@media (max-width: 768px) {
+  .osu-container {
+    height: 60rem;
+  }
+  .osu-wheel {
+    position: absolute;
+    width: 100%;
+    height: 20rem;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-composite: destination-in;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-composite: intersect;
+  }
+}
 .track-detail {
   position: absolute;
   top: 0;
@@ -2274,7 +2293,7 @@ pre code {
   width: 38%;
   height: 100%; /* 整体撑满容器 */
   overflow: hidden;
-  display: block; /* 外层不要 flex */
+  display: block;
   gap: 0;
 /* 左右渐变遮罩，左边 5%，右边 5% */
   -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0) 0%, #000 5%, #000 95%, rgba(0,0,0,0) 100%);
@@ -2312,6 +2331,7 @@ pre code {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none; /* 禁止点击 */
 }
 .track-card {
   position: absolute;
@@ -2336,6 +2356,7 @@ pre code {
 .track-meta {
   width: 100%;
   height: 12%;
+  max-height: 12%;
   font-size: 0.8rem;
   line-height: 1rem;
   color: #888;
@@ -2357,24 +2378,42 @@ pre code {
   overflow: hidden;
 }
 .track-readmore {
-  display: inline-block; /* 变成块级/行内块 */
-  margin-top: auto; /* 推到卡片底部 */
-  padding: 0.5rem 1%; /* 内边距 */
+  display: flex; /* 改成 flex 布局 */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  margin-top: auto;
+  padding: 0.5rem 1%;
   font-size: 1.5rem;
   font-weight: 500;
   background-color: #3a0050;
-  border: none; /* 去掉默认边框 */
-  border-radius: 4px; /* 圆角 */
-  text-decoration: none; /* 去掉下划线 */
-  text-align: center;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
   width: 98%;
   height: 10%;
+  text-align: center; /* 备用，确保文字水平居中 */
 }
 .track-readmore:hover {
   background-color: #4c006a; /* hover 背景色 */
   transform: translateY(-1px); /* 小幅上移 */
+}
+@media (max-width: 768px) {
+  .track-detail {
+    width: 98%;
+    height: 38rem;
+    top: 20rem;
+    right: 1%;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-composite: destination-in;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 10%, #000 90%, rgba(0,0,0,0) 100%);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-composite: intersect;
+  }
 }
 .posts-collapse .post-content {
   margin-bottom: 35px;
