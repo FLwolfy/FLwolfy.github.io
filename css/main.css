@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f5b0ff;
+    background: #0b7421;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2328,7 +2328,6 @@ pre code {
   height: 10%;
   font-size: 1.2rem;
   font-weight: bold;
-  margin: 0 0 0.5rem;
   text-decoration: none;
   overflow: hidden; /* 超出部分隐藏 */
   text-overflow: ellipsis; /* 超出文字显示省略号 */
@@ -2336,11 +2335,10 @@ pre code {
 }
 .track-meta {
   width: 100%;
-  height: 10%;
-  font-size: 80%;
-  line-height: 150%;
+  height: 12%;
+  font-size: 0.8rem;
+  line-height: 1rem;
   color: #888;
-  margin-top: 0.5rem;
   align-items: center;
   justify-content: center;
   display: -webkit-box;
@@ -2354,7 +2352,7 @@ pre code {
 .track-card .track-description {
   font-size: 1rem;
   line-height: 1.5rem;
-  margin: 0.75rem;
+  margin-top: 0;
   height: 60%;
   overflow: hidden;
 }
