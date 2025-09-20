@@ -3,6 +3,7 @@
   // 配置参数
   // ================================
   const CONFIG = {
+    activeZIndex: 10,     // 激活条目的 z-index
     spacing: 12,          // 每条条目角度间隔（度数）
     radius: 300,          // 圆弧半径
     scrollSpeed: 0.1,     // 鼠标滚轮灵敏度
@@ -89,6 +90,14 @@
         track.style.transform = `translate(${x}px, ${y}px) scale(${scale})`;
         track.style.opacity = opacity;
         track.classList.toggle('active', i === activeIndex);
+
+        // 距离越远 z-index 越低，保证有层次感
+        if (i !== activeIndex) {
+          const distance = Math.abs(diff);
+          track.style.zIndex = Math.round(CONFIG.activeZIndex - distance);
+        } else {
+          track.style.zIndex = CONFIG.activeZIndex;
+        }
       });
 
       // 更新右侧 detail 区
