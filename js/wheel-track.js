@@ -43,7 +43,8 @@
     const container = document.querySelector('.osu-wheel');
     if (!container) return;
 
-    const tracks = Array.from(container.querySelectorAll('.track'));
+    // 反
+    const tracks = Array.from(container.querySelectorAll('.track')).reverse();;
     if (!tracks.length) return;
 
     let offset = 0;
@@ -81,10 +82,10 @@
 
       const detail = document.querySelector('.track-detail');
       const detailCover = detail?.querySelector('.track-cover img');
-      const detailTitle = detail?.querySelector('.track-title');
-      const detailDesc  = detail?.querySelector('.track-description');
-      const detailMeta  = detail?.querySelector('.track-meta');
-      const detailLink  = detail?.querySelector('.track-readmore');
+      const detailTitle = detail?.querySelector('.track-info-title');
+      const detailDesc  = detail?.querySelector('.track-info-description');
+      const detailMeta  = detail?.querySelector('.track-info-meta');
+      const detailLink  = detail?.querySelector('.track-info-readmore');
 
       tracks.forEach((track, i) => {
         const diff = offset - i;

@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #a44bec;
+    background: #ff52ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2372,21 +2372,21 @@ pre code {
   display: flex;
   flex-direction: column; /* 垂直排列 */
 }
-.track-title {
+.track-info-title {
   font-size: 1.2rem;
+  margin-top: 0 !important;
   font-weight: bold;
   text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; /* 一行标题 */
 }
-.track-meta {
+.track-info-meta {
   font-size: 0.8rem;
   line-height: 1rem;
   color: #888;
-  margin: 0.5rem 0;
 }
-.track-description {
+.track-info-description {
   font-size: 1rem;
   line-height: 1.5rem;
   overflow: hidden;
@@ -2397,7 +2397,7 @@ pre code {
   white-space: normal;
   word-break: break-word;
 }
-.track-readmore {
+.track-info-readmore {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2416,7 +2416,7 @@ pre code {
   margin-top: auto; /* 推到底部 */
   text-align: center;
 }
-.track-readmore:hover {
+.track-info-readmore:hover {
   background-color: #4c006a;
   transform: translateY(-1px);
 }
@@ -3210,6 +3210,8 @@ ul.breadcrumb li:last-child {
 .cats-tags-container {
   text-align: center;
   position: relative;
+  padding: 1rem;
+  margin-bottom: 2rem;
   background: rgba(255,105,180,0.1);
   border-radius: 0.75rem;
 /* 上下 + 左右渐变遮罩（缩小到 5%） */
@@ -3239,7 +3241,7 @@ ul.breadcrumb li:last-child {
   pointer-events: none;
   box-sizing: border-box;
 /* 四边颜色不同 */
-  border-image: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.3) 100%) 1;
+  border-image: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.25) 100%) 1;
 }
 .category-collage-categories {
   display: flex;
