@@ -24,8 +24,10 @@
   let animationFrameId = null;
   let snapTimer = null;
   let detailTimer = null;
+  
   let isTouchDragging = false;
-  let isMouseDragging = false;
+  let wheelTicking = false;
+  let touchTicking = false;
 
   // ================================
   // 主初始化函数
@@ -116,16 +118,18 @@
     }
 
     // ================================
-    // 鼠标滚轮
+    // 鼠标滚轮（方向修正 + 节流）
     // ================================
     container.addEventListener('wheel', e => {
       e.preventDefault();
-      // 调整方向：滚轮向下 offset 增加 → active track 下移
-      targetOffset -= Math.sign(e.deltaY) * CONFIG.scrollSpeed;
-      targetOffset = Math.max(0, Math.min(tracks.length - 1, targetOffset));
-
-      if (snapTimer) clearTimeout(snapTimer);
-      snapTimer = setTimeout(() => targetOffset = Math.round(targetOffset), CONFIG.snapDelay);
+      if (!wheelTicking) {
+        wheelTicking = true;
+        requestAnimationFrame(() => {
+          targetOffset -= Math.sign(e.deltaY) * CONFIG.scrollSpeed;
+          targetOffset = Math.max(0, Math.min(tracks.length - 1, targetOffset));
+          wheelTicking = false;
+        });
+      }
     }, { passive: false });
 
     // ================================
@@ -139,19 +143,22 @@
       isTouchDragging = true;
       startY = e.touches[0].clientY;
       startOffset = targetOffset;
-
-      if (snapTimer) clearTimeout(snapTimer);
+      clearTimeout(snapTimer);
     }, { passive: true });
 
     container.addEventListener('touchmove', e => {
-      if (!isTouchDragging) return;
-      if (e.touches.length !== 1) return;
-
+      if (!isTouchDragging || e.touches.length !== 1) return;
       e.preventDefault();
-      const deltaY = e.touches[0].clientY - startY;
-      // 调整方向：向下拖动 offset 增加 → active track 下移
-      targetOffset = startOffset + deltaY * CONFIG.touchMoveFactor;
-      targetOffset = Math.max(0, Math.min(tracks.length - 1, targetOffset));
+
+      if (!touchTicking) {
+        touchTicking = true;
+        requestAnimationFrame(() => {
+          const deltaY = e.touches[0].clientY - startY;
+          targetOffset = startOffset + deltaY * CONFIG.touchMoveFactor;
+          targetOffset = Math.max(0, Math.min(tracks.length - 1, targetOffset));
+          touchTicking = false;
+        });
+      }
     }, { passive: false });
 
     container.addEventListener('touchend', () => {
@@ -177,13 +184,7 @@
     });
 
     // ================================
-    // ResizeObserver
-    // ================================
-    resizeObserver = new ResizeObserver(() => render());
-    resizeObserver.observe(container);
-
-    // ================================
-    // 动画循环
+    // 动画循环（只 rAF + 简单插值）
     // ================================
     function animate() {
       offset += (targetOffset - offset) * 0.15;
@@ -192,9 +193,7 @@
     }
     animate();
 
-    // ================================
     // 首次渲染 detail
-    // ================================
     render();
   }
 

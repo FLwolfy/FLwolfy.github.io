@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #b1ff30;
+    background: #9483ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2168,6 +2168,8 @@ pre code {
   justify-content: flex-start; /* 左对齐 */
   overflow: hidden;
   background-color: rgba(188,32,115,0.8);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
 }
 .track::after {
   content: "";
