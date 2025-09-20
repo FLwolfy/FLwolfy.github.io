@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff3079;
+    background: #00ff1b;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2387,8 +2387,8 @@ pre code {
   color: #888;
 }
 .track-info-description {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.2rem;
   overflow: hidden;
   flex: 1 1 auto; /* 填充剩余空间 */
   display: -webkit-box;
