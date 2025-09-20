@@ -43,8 +43,14 @@
     const container = document.querySelector('.osu-wheel');
     if (!container) return;
 
-    // 反
-    const tracks = Array.from(container.querySelectorAll('.track')).reverse();;
+    // 反转顺序日期
+    const tracks = Array.from(container.querySelectorAll('.track'))
+    .sort((a, b) => {
+      // data-created 用 Unix 时间戳或 ISO 格式
+      const t1 = new Date(a.dataset.created).getTime();
+      const t2 = new Date(b.dataset.created).getTime();
+      return t2 - t1; // 降序
+    });
     if (!tracks.length) return;
 
     let offset = 0;
