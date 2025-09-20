@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #ff0;
+    background: #ffff9f;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2215,6 +2215,7 @@ pre code {
   display: block;
   width: 100%;
   height: 100%;
+  pointer-events: none; /* 禁止点击 */
 }
 .track-image img {
   width: 100%;
@@ -2284,6 +2285,18 @@ pre code {
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
   mask-composite: intersect;
+/* 动画 */
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.track-detail.fade-out {
+  opacity: 0;
+  transform: translateX(20px); /* 向右淡出 */
+}
+.track-detail.fade-in {
+  opacity: 1;
+  transform: translateX(0); /* 从右淡入 */
 }
 .track-cover {
   position: absolute;
@@ -2309,24 +2322,46 @@ pre code {
   padding: 1.2rem 2rem 2rem 2rem;
   background: rgba(210,92,62,0.518);
   box-sizing: border-box;
-  display: flex; /* 卡片内部用 flex */
-  flex-direction: column; /* 垂直排列 */
+  display: block;
 }
 .track-card .track-title {
+  height: 10%;
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0 0 0.5rem;
   text-decoration: none;
+  overflow: hidden; /* 超出部分隐藏 */
+  text-overflow: ellipsis; /* 超出文字显示省略号 */
+  white-space: nowrap; /* 不换行 */
+}
+.track-meta {
+  width: 100%;
+  height: 10%;
+  font-size: 80%;
+  line-height: 150%;
+  color: #888;
+  margin-top: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  display: -webkit-box;
+  word-break: break-word; /* 强制长单词换行 */
+  white-space: normal;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .track-card .track-description {
   font-size: 1rem;
   line-height: 1.5rem;
   margin: 0.75rem;
+  height: 60%;
+  overflow: hidden;
 }
 .track-readmore {
   display: inline-block; /* 变成块级/行内块 */
   margin-top: auto; /* 推到卡片底部 */
-  padding: 0.4rem 0.8rem; /* 内边距 */
+  padding: 0.5rem 1%; /* 内边距 */
   font-size: 1.5rem;
   font-weight: 500;
   background-color: #3a0050;
@@ -2336,19 +2371,12 @@ pre code {
   text-align: center;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;
+  width: 98%;
+  height: 10%;
 }
 .track-readmore:hover {
   background-color: #4c006a; /* hover 背景色 */
   transform: translateY(-1px); /* 小幅上移 */
-}
-.track-meta {
-  width: 100%;
-  font-size: 0.8rem;
-  color: #888;
-  margin-top: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 .posts-collapse .post-content {
   margin-bottom: 35px;
