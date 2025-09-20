@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #732933;
+    background: #34ff8b;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2433,6 +2433,18 @@ pre code {
     mask-repeat: no-repeat;
     mask-size: 100% 100%;
     mask-composite: intersect;
+  }
+  .track-cover {
+    width: 96%;
+    left: 2%;
+    position: relative;
+/* 左右渐变遮罩 */
+    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0), #000 10%, #000 90%, rgba(0,0,0,0));
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: linear-gradient(to right, rgba(0,0,0,0), #000 10%, #000 90%, rgba(0,0,0,0));
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
   }
 }
 .posts-collapse .post-content {
