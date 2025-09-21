@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #63ffff;
+    background: #2ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3196,9 +3196,9 @@ ul.breadcrumb li:last-child {
   font-weight: bold;
 }
 .enhanced-title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  padding: 1rem 1rem 0rem 1rem;
+  padding: 0.2rem 1rem 0rem 1rem;
   border-bottom: 0.125rem solid var(--brand-color);
   display: flex;
   align-items: center;
@@ -3255,7 +3255,7 @@ ul.breadcrumb li:last-child {
   gap: 1rem;
   overflow-x: auto;
   padding: 0.75rem 0.625rem;
-  margin: 0 auto 1.2rem auto;
+  margin: 0 auto;
   scrollbar-width: thin;
   scrollbar-color: #bbb transparent;
   justify-content: center;
