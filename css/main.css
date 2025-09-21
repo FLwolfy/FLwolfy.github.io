@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #00ff1b;
+    background: #63ff75;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2352,6 +2352,13 @@ pre code {
   width: 100%;
   height: 30%; /* 3:7 */
   overflow: hidden;
+/* 下方渐变透明效果 */
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, #000 70%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
 }
 .track-cover a,
 .track-cover img {
@@ -2511,7 +2518,7 @@ pre code {
   margin-left: 5px;
 }
 .posts-collapse .post-content .post-header {
-  margin: 30px 2px 0;
+  margin: 0px 2px 0;
   padding-left: 15px;
   position: relative;
   transition: border 0.2s ease-in-out;
@@ -2562,7 +2569,7 @@ pre code {
 .post-card {
   display: block;
   background-color: rgba(226,61,149,0.2);
-  margin-bottom: 20px;
+  margin-bottom: 1.2rem;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   height: 9rem;
@@ -2632,9 +2639,6 @@ pre code {
   line-height: 1.75rem;
   height: 1.75rem;
   margin: 0 !important;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
 }
 .post-card-title a {
   white-space: nowrap;
@@ -2643,7 +2647,7 @@ pre code {
 }
 .post-card-excerpt {
   font-size: 0.95rem;
-  margin: 0.25rem 0.5rem 0.25rem 0.5rem;
+  margin: 0.5rem 0.5rem 0rem 0.5rem;
   height: 4rem;
   display: -webkit-box;
   word-break: break-word; /* 强制长单词换行 */
@@ -2669,6 +2673,7 @@ pre code {
   color: #d6c9ff;
   opacity: 0.4;
   transition: color 0.3s ease;
+  border: none; /* 去除下划线 */
 }
 .post-card-content .post-meta-container a:hover {
   opacity: 1;
@@ -3248,7 +3253,7 @@ ul.breadcrumb li:last-child {
   gap: 1rem;
   overflow-x: auto;
   padding: 0.75rem 0.625rem;
-  margin: 0 auto 1.875rem auto;
+  margin: 0 auto 1.2rem auto;
   scrollbar-width: thin;
   scrollbar-color: #bbb transparent;
   justify-content: center;
