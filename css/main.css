@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #f42;
+    background: #ffad03;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3302,13 +3302,12 @@ ul.breadcrumb li:last-child {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.1);
   pointer-events: none;
-  transition: opacity 0.3s ease;
   z-index: 1;
 }
 .category-collage-card:hover::after {
-  opacity: 0;
+  background: rgba(0,0,0,0);
 }
 .category-collage-card img {
   width: 100%;
