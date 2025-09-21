@@ -1566,7 +1566,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #63ff75;
+    background: #63ffff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -2442,16 +2442,18 @@ pre code {
     mask-composite: intersect;
   }
   .track-cover {
-    width: 96%;
-    left: 2%;
+    width: 98%;
+    left: 1%;
     position: relative;
-/* 左右渐变遮罩 */
-    -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,0), #000 10%, #000 90%, rgba(0,0,0,0));
+/* ===== 上下 + 左右渐变遮罩 ===== */
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 30%, #000 90%, rgba(0,0,0,0) 100%), linear-gradient(to right, rgba(0,0,0,0) 0%, #000 5%, #000 95%, rgba(0,0,0,0) 100%);
     -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-image: linear-gradient(to right, rgba(0,0,0,0), #000 10%, #000 90%, rgba(0,0,0,0));
+    -webkit-mask-size: 100% 100%, 100% 100%;
+    -webkit-mask-composite: destination-in;
+    mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, #000 30%, #000 90%, rgba(0,0,0,0) 100%), linear-gradient(to right, rgba(0,0,0,0) 0%, #000 5%, #000 95%, rgba(0,0,0,0) 100%);
     mask-repeat: no-repeat;
-    mask-size: 100% 100%;
+    mask-size: 100% 100%, 100% 100%;
+    mask-composite: intersect;
   }
 }
 .posts-collapse .post-content {
@@ -2484,7 +2486,7 @@ pre code {
 .posts-collapse .post-content .collection-year {
   font-size: 1.5em;
   font-weight: bold;
-  margin: 60px 0;
+  margin: 30px 0;
   position: relative;
 }
 .posts-collapse .post-content .collection-year .collection-year-count {
