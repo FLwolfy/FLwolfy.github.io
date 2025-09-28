@@ -131,7 +131,8 @@
             quit: {
                 icon: F,
                 callback: () => {
-                    localStorage.setItem("waifu-display", Date.now()), a("\u613F\u4F60\u6709\u4E00\u5929\u80FD\u4E0E\u91CD\u8981\u7684\u4EBA\u91CD\u9022\u3002", 2e3, 11), document.getElementById("waifu").style.bottom = "-500px", setTimeout(() => {
+                    let visualHeight = document.getElementById("waifu").getBoundingClientRect().height;
+                    localStorage.setItem("waifu-display", Date.now()), a("\u613F\u4F60\u6709\u4E00\u5929\u80FD\u4E0E\u91CD\u8981\u7684\u4EBA\u91CD\u9022\u3002", 2e3, 11), document.getElementById("waifu").style.bottom = `${-visualHeight}px`, setTimeout(() => {
                         document.getElementById("waifu").style.display = "none", document.getElementById("waifu-toggle").classList.add("waifu-toggle-active")
                     }, 3e3)
                 }
@@ -146,7 +147,25 @@
             <canvas id="live2d" width="800" height="800"></canvas>
             <div id="waifu-tool"></div>
         </div>`), setTimeout(() => {
-                document.getElementById("waifu").style.bottom = 0
+                const waifuEl = document.getElementById("waifu");
+                const visualHeight = waifuEl.getBoundingClientRect().height;
+                waifuEl.style.bottom = `${-visualHeight}px`;
+
+                let start = null;
+                const duration = 1000;
+                const initialBottom = -visualHeight;
+                const targetBottom = 0;
+
+                function animate(timestamp) {
+                    if (!start) start = timestamp;
+                    const progress = Math.min((timestamp - start) / duration, 1);
+                    waifuEl.style.bottom = `${initialBottom + (targetBottom - initialBottom) * progress}px`;
+                    if (progress < 1) {
+                        requestAnimationFrame(animate);
+                    }
+                }
+
+                requestAnimationFrame(animate);
             }, 0),
             function() {
                 u["switch-model"].callback = () => o.switchModel(), u["switch-texture"].callback = () => o.switchTextures(), Array.isArray(e.tools) || (e.tools = Object.keys(u));
@@ -266,7 +285,7 @@
         let t = document.getElementById("waifu-toggle");
         t.addEventListener("click", () => {
             t.classList.remove("waifu-toggle-active"), t.getAttribute("first-time") ? (E(e), t.removeAttribute("first-time")) : (localStorage.removeItem("waifu-display"), document.getElementById("waifu").style.display = "", setTimeout(() => {
-                document.getElementById("waifu").style.bottom = 0
+                document.getElementById("waifu").style.bottom = 0;
             }, 0))
         }), localStorage.getItem("waifu-display") && Date.now() - localStorage.getItem("waifu-display") <= 864e5 ? (t.setAttribute("first-time", !0), setTimeout(() => {
             t.classList.add("waifu-toggle-active")
@@ -306,69 +325,6 @@
         a(H(), 7e3, 11)
     }
 
-function R(r) {
-    const waifu = document.getElementById("waifu");
-    if (!waifu) {
-        setTimeout(() => R(r), 100);
-        return;
-    }
-
-    const maxScale = 1.0;
-    const minScale = Math.min(Math.max(r.minScale || 0.1, 0.1), maxScale);
-    const step = Math.min(Math.max(r.step || 0.05, 0.01), maxScale);
-    let scale = Math.min(Math.max(r.defaultScale ?? 1.0, minScale), maxScale);
-
-    // 设置原点与动画效果
-    waifu.style.transformOrigin = r.origin || "center center";
-    waifu.style.transition = 'transform 0.1s ease-out';
-    waifu.style.transform = `scale(${scale})`;
-
-    // 滚轮缩放（兼容 Mac 触控板 & Windows 鼠标）
-    waifu.addEventListener("wheel", e => {
-        e.preventDefault();
-
-        // 对 deltaY 归一化，限制最大步进，防止轻轻一动就极限
-        const delta = Math.max(-100, Math.min(100, e.deltaY)); // 限制范围 [-100, 100]
-        const deltaScale = -delta * step * 0.01; // 缩放比例根据 deltaY 的比例变化
-
-        scale = Math.min(maxScale, Math.max(minScale, scale + deltaScale));
-        waifu.style.transform = `scale(${scale})`;
-    }, { passive: false });
-
-    // 触摸缩放
-    let lastDistance = null;
-    const getDistance = (t1, t2) =>
-        Math.hypot(t2.clientX - t1.clientX, t2.clientY - t1.clientY);
-
-    waifu.addEventListener("touchstart", e => {
-        if (e.touches.length === 2) {
-            lastDistance = getDistance(e.touches[0], e.touches[1]);
-        }
-    }, { passive: false });
-
-    waifu.addEventListener("touchmove", e => {
-        if (e.touches.length === 2) {
-            e.preventDefault();
-            const newDistance = getDistance(e.touches[0], e.touches[1]);
-            if (lastDistance !== null) {
-                const diff = newDistance - lastDistance;
-                const sensitivity = step * 5; // 稍微降低敏感度
-                scale = Math.min(maxScale, Math.max(minScale, scale + Math.sign(diff) * sensitivity));
-                waifu.style.transform = `scale(${scale})`;
-            }
-            lastDistance = newDistance;
-        }
-    }, { passive: false });
-
-    waifu.addEventListener("touchend", e => {
-        if (e.touches.length < 2) {
-            lastDistance = null;
-        }
-    }, { passive: false });
-}
-
-
     window.initWidget = B;
-    window.initResize = R; 
     window.showWelcomeMessage = z;
 })();
