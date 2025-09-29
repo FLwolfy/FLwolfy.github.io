@@ -4407,7 +4407,7 @@ use.stop-animation {
 }
 .md h4::after {
   color: var(--color-grey);
-  content: "≻꧂";
+  content: "꧂";
   margin-left: 0.25rem;
   opacity: 0.4;
 }
@@ -4622,7 +4622,7 @@ use.stop-animation {
 }
 @media (max-width: 567px) {
   .article .md .anchor::after {
-    left: 0.75rem;
+    left: 0.875rem;
   }
 }
 .article .md h1 .anchor::after {
