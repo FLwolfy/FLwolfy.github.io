@@ -2033,11 +2033,6 @@ main >.inner {
   justify-content: space-between;
   flex-direction: row-reverse;
 }
-@media (min-width: 1200px) {
-  main >.inner {
-    width: 72.5rem;
-  }
-}
 @media (min-width: 1600px) {
   main >.inner {
     width: 73%;
@@ -2307,11 +2302,6 @@ main >.inner {
   display: flex;
   width: calc(100% - 0.625rem);
   flex-wrap: nowrap;
-}
-@media (min-width: 1200px) {
-  #nav .inner {
-    width: 72.5rem;
-  }
 }
 @media (min-width: 1600px) {
   #nav .inner {
@@ -2731,6 +2721,7 @@ use.stop-animation {
   }
 }
 #sidebar {
+  min-height: 100vh;
   position: static;
   overflow: scroll;
   width: 15rem;
@@ -3008,14 +2999,16 @@ use.stop-animation {
   transform: scale(1);
 }
 #quick {
-  display: none;
+  opacity: 0;
+  display: flex;
   align-items: center;
   flex-wrap: wrap;
   width: 15rem;
   margin: 0;
   padding: 0;
-  position: sticky;
-  bottom: 0.125rem;
+  transition: opacity 0.3s ease;
+  position: fixed;
+  bottom: 1.125rem;
 }
 #quick li {
   width: 25%;
@@ -3040,7 +3033,7 @@ use.stop-animation {
 }
 #sidebar.affix #quick,
 #sidebar.on #quick {
-  display: flex;
+  opacity: 1;
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape), screen and (min-width: 768px) and (max-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (max-width: 1440px) and (-webkit-min-device-pixel-ratio: 1) {
   #sidebar {
@@ -3210,11 +3203,6 @@ use.stop-animation {
   width: calc(100% - 0.625rem);
   position: relative;
   padding-left: 16.25rem;
-}
-@media (min-width: 1200px) {
-  #footer .inner {
-    width: 72.5rem;
-  }
 }
 @media (min-width: 1600px) {
   #footer .inner {
