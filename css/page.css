@@ -2063,6 +2063,9 @@ main >.inner {
   background-color: #363636;
   content-visibility: auto;
   contain-intrinsic-size: 100vw 70vh;
+/* 垂直视差滚动 */
+  will-change: transform;
+  transform: translate3d(0, var(--parallax-offset, 0), 0);
 }
 #imgs li.stop-animation {
   animation-play-state: paused;
@@ -4711,18 +4714,12 @@ use.stop-animation {
   background: var(--grey-3-a6);
   position: absolute;
   right: 0%;
-  width: 37%;
+  width: 38%;
   height: 100%; /* 整体撑满容器 */
   overflow: hidden;
   display: block;
+  border-radius: 1rem;
   gap: 0;
-/* 左侧渐变透明效果 */
-  -webkit-mask-image: linear-gradient(to left, #000 95%, rgba(0,0,0,0) 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: cover;
-  mask-image: linear-gradient(to left, #000 95%, rgba(0,0,0,0) 100%);
-  mask-repeat: no-repeat;
-  mask-size: cover;
 /* 动画效果 */
   opacity: 1;
   transform: translateX(0);
@@ -4785,8 +4782,9 @@ use.stop-animation {
   line-height: 3.2rem;
   font-weight: bold;
   text-align: center;
-/* 文字阴影替代描边，兼容性更好（叠加多层） */
-  text-shadow: -0.1rem -0.1rem 0 #000, 0.1rem -0.1rem 0 #000, -0.1rem 0.1rem 0 #000, 0.1rem 0.1rem 0 #000;
+/* 文字描边 */
+  -webkit-text-stroke: 0.4rem #000; /* 边框颜色和粗细 */
+  paint-order: stroke fill; /* 确保描边在文字外 */
 /* 多行省略号 */
   display: -webkit-box; /* 盒子模型 */
   -webkit-box-orient: vertical; /* 垂直布局 */
@@ -4840,13 +4838,20 @@ use.stop-animation {
   line-height: 1.2rem;
   overflow: hidden;
   flex: 1 1 auto; /* 填充剩余空间 */
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 999; /* 无限行 */
   white-space: normal;
   word-break: break-word;
+/* 底部渐变透明效果 */
+  -webkit-mask-image: linear-gradient(to bottom, #000 90%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to bottom, #000 90%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
 }
 .track-info-readmore {
   display: flex;
