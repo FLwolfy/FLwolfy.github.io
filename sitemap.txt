@@ -1,9 +1,9 @@
 https://flwolfy.github.io/live2d/waifu-tips.json
 https://flwolfy.github.io/live2d/resources/model_list.json
-https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/model.physics3.json
-https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/model.pose3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/params.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/%E5%9C%86%E7%A5%9E.model3.json
+https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/model.physics3.json
+https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/model.pose3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/mtn/motion_000.motion3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/mtn/motion_001.motion3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/mtn/motion_100.motion3.json
@@ -17,8 +17,8 @@ https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_0
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_020.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_030.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_031.exp3.json
-https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_040.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_041.exp3.json
+https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_040.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_051.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_052.exp3.json
 https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_060.exp3.json
