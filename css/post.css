@@ -4538,7 +4538,7 @@ use.stop-animation {
 }
 .md img {
   max-height: 12rem;
-  width: auto;
+  width: 100%;
   display: block;
   object-fit: cover;
   background: var(--grey-4);
@@ -4561,7 +4561,6 @@ use.stop-animation {
 }
 .md table {
   width: auto;
-  table-layout: fixed;
   margin-left: auto; /* 水平居中 */
   margin-right: auto;
   border-collapse: collapse; /* 合并边框 */
@@ -4571,11 +4570,16 @@ use.stop-animation {
   border: 0;
   padding: 0;
 }
+@media (max-width: 820px) {
+  .md table {
+    width: 100%;
+    table-layout: fixed;
+  }
+}
 .md table th,
 .md table td {
   background: var(--grey-4);
   border: 0.3rem solid var(--color-grey); /* 单元格线条加粗 */
-  padding: 0.7rem 0.7rem; /* 给点内边距，不会太挤 */
 }
 .md ruby {
   padding: 0 0.3125rem;
