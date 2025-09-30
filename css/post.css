@@ -43,6 +43,7 @@
   --grey-7: #190a32;
   --grey-8: #220701;
   --grey-9: #000;
+  --grey-0-a7: rgba(252,237,237,0.7);
   --grey-1-a0: rgba(250,237,246,0);
   --grey-1-a7: rgba(250,237,246,0.7);
   --grey-1-a5: rgba(250,237,246,0.5);
@@ -122,6 +123,7 @@
   --grey-7: #c0afd2;
   --grey-8: #e4a5e9;
   --grey-9: #f5decf;
+  --grey-0-a7: rgba(33,0,17,0.7);
   --grey-1-a7: rgba(39,23,31,0.7);
   --grey-1-a5: rgba(39,23,31,0.5);
   --grey-1-a3: rgba(39,23,31,0.3);
@@ -4353,6 +4355,11 @@ use.stop-animation {
 .md h1 .anchor::before {
   content: "⚠️" !important;
 }
+@media (max-width: 567px) {
+  .md h1 .anchor::after {
+    content: "" !important;
+  }
+}
 .md h1::before,
 .md h1::after {
   content: "";
@@ -6244,13 +6251,14 @@ span.label {
   display: none;
 }
 .track-detail {
-  background: var(--grey-3-a6);
+  background: var(--grey-0-a7);
   position: absolute;
   right: 0%;
   width: 38%;
   height: 100%; /* 整体撑满容器 */
   overflow: hidden;
   display: block;
+  border: 0.5rem solid var(--grey-6-a2);
   border-radius: 1rem;
   gap: 0;
 /* 动画效果 */
