@@ -4561,6 +4561,7 @@ use.stop-animation {
 }
 .md table {
   width: auto;
+  table-layout: fixed;
   margin-left: auto; /* 水平居中 */
   margin-right: auto;
   border-collapse: collapse; /* 合并边框 */
