@@ -2,24 +2,24 @@
 <rss version="2.0">
     <channel>
         <title>FLwolfy&#39;s Blog</title>
+        <subtitle>欢迎来到我的博客！</subtitle>
+        <icon>https://flwolfy.github.io/assets/favicon.ico</icon>
         <link>https://flwolfy.github.io</link>
+        <author>
+          <name>FLwolfy</name>
+        </author>
         <description>编程、游戏、动漫爱好者！</description>
         <language>zh-CN</language>
         <pubDate>Tue, 16 Sep 2025 16:00:00 +0000</pubDate>
         <lastBuildDate>Tue, 16 Sep 2025 16:00:00 +0000</lastBuildDate>
-        <category>SSBU</category>
-        <category>宝可梦</category>
-        <category>攻略</category>
-        <category>旅游</category>
-        <category>秋叶原</category>
-        <category>型月</category>
-        <category>杂谈</category>
         <item>
             <guid isPermalink="true">https://flwolfy.github.io/2025/09/16/wothn-review/</guid>
             <title>《魔法使之夜》通关感想【更新中...】</title>
             <link>https://flwolfy.github.io/2025/09/16/wothn-review/</link>
-            <category>型月</category>
-            <category>杂谈</category>
+            <category term="动漫" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/" />
+            <category term="观后感" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/%E8%A7%82%E5%90%8E%E6%84%9F/" />
+            <category term="型月" scheme="https://flwolfy.github.io/tags/%E5%9E%8B%E6%9C%88/" />
+            <category term="杂谈" scheme="https://flwolfy.github.io/tags/%E6%9D%82%E8%B0%88/" />
             <pubDate>Tue, 16 Sep 2025 16:00:00 +0000</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;阅读前须知&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#阅读前须知&#34;&gt;#&lt;/a&gt; 阅读前须知&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -30,15 +30,19 @@
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;引言-intro&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引言-intro&#34;&gt;#&lt;/a&gt; 引言 | Intro&lt;/h2&gt;
 &lt;p&gt;《魔法使之夜》作为型月 TYPE-MOON 的代表作之一，以其独特的世界观和深刻的人物刻画吸引了大量玩家和读者（包括我）。本文将从苍崎青子、久远寺有珠和静希草十郎三位主角的性格特点、情感关系以及他们在故事中的角色定位等方面进行深入分析，探讨他们如何在复杂的情感纠葛中展现出各自的独特魅力。&lt;/p&gt;
+&lt;h2 id=&#34;后续&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后续&#34;&gt;#&lt;/a&gt; 后续&lt;/h2&gt;
+&lt;p&gt;正在更新中...&lt;/p&gt;
  ]]></description>
         </item>
         <item>
             <guid isPermalink="true">https://flwolfy.github.io/2025/06/20/lucario-guide/</guid>
             <title>路卡利欧全方位教程</title>
             <link>https://flwolfy.github.io/2025/06/20/lucario-guide/</link>
-            <category>SSBU</category>
-            <category>宝可梦</category>
-            <category>攻略</category>
+            <category term="游戏" scheme="https://flwolfy.github.io/categories/%E6%B8%B8%E6%88%8F/" />
+            <category term="攻略" scheme="https://flwolfy.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%94%BB%E7%95%A5/" />
+            <category term="SSBU" scheme="https://flwolfy.github.io/tags/SSBU/" />
+            <category term="宝可梦" scheme="https://flwolfy.github.io/tags/%E5%AE%9D%E5%8F%AF%E6%A2%A6/" />
+            <category term="攻略" scheme="https://flwolfy.github.io/tags/%E6%94%BB%E7%95%A5/" />
             <pubDate>Fri, 20 Jun 2025 16:00:00 +0000</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;前言和申明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言和申明&#34;&gt;#&lt;/a&gt; 前言和申明&lt;/h1&gt;
 &lt;blockquote&gt;
@@ -278,12 +282,157 @@
         </item>
         <item>
             <guid isPermalink="true">https://flwolfy.github.io/2025/05/26/sg-visit/</guid>
-            <title>《命运石之门》圣地巡礼【更新中...】</title>
+            <title>《命运石之门》圣地巡礼</title>
             <link>https://flwolfy.github.io/2025/05/26/sg-visit/</link>
-            <category>旅游</category>
-            <category>秋叶原</category>
+            <category term="动漫" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/" />
+            <category term="圣地巡礼" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/%E5%9C%A3%E5%9C%B0%E5%B7%A1%E7%A4%BC/" />
+            <category term="旅游" scheme="https://flwolfy.github.io/tags/%E6%97%85%E6%B8%B8/" />
+            <category term="秋叶原" scheme="https://flwolfy.github.io/tags/%E7%A7%8B%E5%8F%B6%E5%8E%9F/" />
             <pubDate>Mon, 26 May 2025 16:00:00 +0000</pubDate>
-            <description><![CDATA[  ]]></description>
+            <description><![CDATA[ &lt;h1 id=&#34;图片所有权声明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图片所有权声明&#34;&gt;#&lt;/a&gt; 图片所有权声明&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;大部分实景图片为本人及朋友（已授权）拍摄，未经允许请勿使用！&lt;/li&gt;
+&lt;li&gt;动漫内部图片均为原片截图以及B站“圣地巡礼”专栏导览图，如果这侵犯了你的著作权，请立即联系我，我会删除。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;引言-intro&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#引言-intro&#34;&gt;#&lt;/a&gt; 引言 | Intro&lt;/h2&gt;
+&lt;p&gt;今年5月去了一趟入本东京旅游，作为二次元圈内人，必须去一趟秋叶原买各种谷子。同时秋叶原作为大名鼎鼎的“石头门”取景地，本人作为石头门厨必须要进行一波圣地巡礼啦。跟我一起说：一切都是命运石之门的选择！&lt;/p&gt;
+&lt;p&gt;虽然秋叶原本身其实不大，但本人和朋友逛各家谷子店花了非常久的时间，基本上也是收获满满，不过圣地打卡也就反倒变成了买谷之余做的事情了哈哈。本人打卡的地方除了参考动漫中的地点，也有部分几个是根据游戏内出现的画面进行相同角度的拍摄。不过本人的拍摄技术有限，拍的不好见谅啦～&lt;/p&gt;
+&lt;h2 id=&#34;圣地巡礼打卡图&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#圣地巡礼打卡图&#34;&gt;#&lt;/a&gt; 圣地巡礼打卡图&lt;/h2&gt;
+&lt;p&gt;PS: 取景原图均来自《命运石之门》、《命运石之门：0》，其余实拍图均为本人实际到场拍摄。&lt;/p&gt;
+&lt;h3 id=&#34;jr秋叶原站&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#jr秋叶原站&#34;&gt;#&lt;/a&gt; JR秋叶原站&lt;/h3&gt;
+&lt;p&gt;这里是一切梦开始的地方，秋叶原车站真的很大（虽然感觉不如上海虹桥站哈哈），走出来那种一片二次元氛围扑面而来的感觉真的很爽～&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/AkihabaraStation.jpg&#34; alt=&#34;Akihabara Station&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/AkihabaraStationVisit.jpg&#34; alt=&#34;Akihabara Station Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;广播会馆&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#广播会馆&#34;&gt;#&lt;/a&gt; 广播会馆&lt;/h3&gt;
+&lt;p&gt;这里是牧濑红莉栖的&lt;s&gt;葬身之地&lt;/s&gt;，现实生活中这里是一个重要的买谷子的地方，不过有一说一这里的谷子比其他地方贵很多，而且品种基本都是一些当季潮漫，也就可能因为石头门比较特殊，所以有一些石头门的谷子还在售卖。&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Boardcast.jpg&#34; alt=&#34;Boardcast&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/BoardcastVisit.jpg&#34; alt=&#34;Boardcast Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;神田ふわあい桥&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#神田ふわあい桥&#34;&gt;#&lt;/a&gt; 神田ふわあい桥&lt;/h3&gt;
+&lt;p&gt;这张图是本人本次秋叶原之行最满意的拍摄图。不论是但是的天气还是时间都非常合适，正好对应原作动漫里桥上那种朦胧氛围。&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Bridge.jpg&#34; alt=&#34;Bridge&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/BridgeVisit.jpg&#34; alt=&#34;Bridge Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;神田ふわあい桥前斜坡&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#神田ふわあい桥前斜坡&#34;&gt;#&lt;/a&gt; 神田ふわあい桥前斜坡&lt;/h3&gt;
+&lt;p&gt;这个斜坡前是冈部伦太郎为了拯救真有理不断循环的开端，这个场景虽然很好见到，不过由于这个桥现在使用率很高，很难找到时机等没人的时候拍摄。不过日本人都挺有礼貌的，我在拍摄的时候，有一些上班族宁可停下来等我拍完。&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Slope.jpg&#34; alt=&#34;Slope&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/SlopeVisit.jpg&#34; alt=&#34;Slope Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;菲利斯-nyan2-女仆咖啡厅&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#菲利斯-nyan2-女仆咖啡厅&#34;&gt;#&lt;/a&gt; 菲利斯 Nyan² 女仆咖啡厅&lt;/h3&gt;
+&lt;p&gt;这也是动漫里一个非常重要的地方，是真有理和菲利斯打工的女仆咖啡厅。本人没有实际进去，但是从外面看去好像已经不是女仆咖啡厅了（有点可惜），不过招牌还在，打卡还是ok的～&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Nyan2.jpg&#34; alt=&#34;Nyan2&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Nyan2Visit.jpg&#34; alt=&#34;Nyan2 Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;柳森神社&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#柳森神社&#34;&gt;#&lt;/a&gt; 柳森神社&lt;/h3&gt;
+&lt;p&gt;这里动漫里应该是叫做“柳林神社”，是原作琉华子的家，实际比动漫里要小很多，而且一般时间都是不让人进去的。本人也只能在外面简单拍摄，不做过多打扰...&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Temple.jpg&#34; alt=&#34;Temple&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/TempleVisit.jpg&#34; alt=&#34;Temple Visit&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/TempleVisit2.jpg&#34; alt=&#34;Temple Visit 2&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;秋叶原十字场&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#秋叶原十字场&#34;&gt;#&lt;/a&gt; 秋叶原十字场&lt;/h3&gt;
+&lt;p&gt;这个是天桥上面，就是但是牧濑红莉栖点醒冈部伦太郎去撤回 DMail 拯救真有理的地点。非常令人印象深刻，地点是在秋叶原车站的正对面。这里也是上班族来往很密集的地方，不过原作游戏中这里就是人来人往的，也符合设定。&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/CrossField.jpg&#34; alt=&#34;CrossField&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/CrossFieldVisit.jpg&#34; alt=&#34;CrossField Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;udx-大楼&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#udx-大楼&#34;&gt;#&lt;/a&gt; UDX 大楼&lt;/h3&gt;
+&lt;p&gt;这个大楼的楼顶就是动漫里牧濑红莉栖住的酒店。这个大楼作为秋叶原地标之一也是很显眼的存在，它在动漫里也是反复出现作为地标。&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/UDX.jpg&#34; alt=&#34;UDX&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/UDXVisit.jpg&#34; alt=&#34;UDX Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;西池袋公园&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#西池袋公园&#34;&gt;#&lt;/a&gt; 西池袋公园&lt;/h3&gt;
+&lt;p&gt;西池袋公园是《命运石之门：0》第2集结尾，冈部伦太郎和真由理一起散步的地方。这里也是牧濑红莉栖和冈部伦太郎谈心的地方，红莉栖在这里公园的滑滑梯上与伦太郎讲述自己童年的故事和与父亲的关系，是个很重要的地点（就是比较隐蔽不好找哈哈）。&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Park.jpg&#34; alt=&#34;Park&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/ParkVisit.jpg&#34; alt=&#34;Temple Visit&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;番外和其他&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#番外和其他&#34;&gt;#&lt;/a&gt; 番外和其他&lt;/h2&gt;
+&lt;p&gt;除了这次打卡，本人在秋叶原也买了很多吧唧和谷子，同时也吃了非常多种类的美食（本人最爱日式猪排饭哈哈，吃了好几次百吃不厌！），在此也分享给大家～&lt;/p&gt;
+&lt;h3 id=&#34;谷子收获&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#谷子收获&#34;&gt;#&lt;/a&gt; 谷子收获&lt;/h3&gt;
+&lt;p&gt;谷子大部分是在秋叶原买的，也有少部分是在池袋和涉谷买的。大部分是在 KBooks 和 Animate 买的，种类很多，新番老番都有，只要你肯仔细找，基本都能找到心中那个“隐藏款”。（谷子里面那个爽哥吧唧是我最喜欢的，本人爽哥厨，哈哈～）&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Goods.jpg&#34; alt=&#34;Goods&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Sayaka.jpg&#34; alt=&#34;Sayaka&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;日本美食&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#日本美食&#34;&gt;#&lt;/a&gt; 日本美食&lt;/h3&gt;
+&lt;p&gt;美食的话就不仅限于秋叶原啦，猪排饭、拉面、咖喱饭等应有尽有，真的很爽！&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;medium-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Food1.jpg&#34; alt=&#34;Food1&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Food2.jpg&#34; alt=&#34;Food2&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Food3.jpg&#34; alt=&#34;Food3&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/Food4.jpg&#34; alt=&#34;Food4&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;hr /&gt;
+&lt;p&gt;当然还有地道饮料野菜人生(个人觉得很不错)和石头门中二必备经典饮料 Dr.Pepper (超级难喝！)～&lt;/p&gt;
+&lt;table :=&#34;&#34; class=&#34;large-imgs&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/VegetableJuice.jpg&#34; alt=&#34;VegetableJuice&#34; /&gt;&lt;/th&gt;
+&lt;th&gt;&lt;img loading=&#34;lazy&#34; src=&#34;/assets/post/sg-visit/DrPepper.jpg&#34; alt=&#34;DrPepper&#34; /&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;节语&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#节语&#34;&gt;#&lt;/a&gt; 节语&lt;/h2&gt;
+&lt;p&gt;本次秋叶原之行真的很棒，圣地旅行了命运石之门中各个景点。唯一的遗憾是当时旅游前不久我才刚入坑二次元，很多番我都不认识，错过了很多经典谷子...之后看了更多番再来，相比会更加开心～&lt;/p&gt;
+&lt;p&gt;当然本次日本之行也不只去了秋叶原，池袋、东京塔、涉谷等知名景点也都去了，有机会再写文章分享吧（咕——，有生之年～）。&lt;/p&gt;
+&lt;p&gt;总结：好玩，下次还来！&lt;/p&gt;
+ ]]></description>
         </item>
     </channel>
 </rss>

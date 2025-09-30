@@ -4537,6 +4537,7 @@ use.stop-animation {
   color: inherit;
 }
 .md img {
+  max-height: 12rem;
   width: auto;
   display: block;
   object-fit: cover;
@@ -4552,6 +4553,12 @@ use.stop-animation {
   opacity: 1 !important;
   filter: none !important;
 }
+.md .medium-imgs img {
+  max-height: 24rem;
+}
+.md .large-imgs img {
+  max-height: 36rem;
+}
 .md table {
   width: auto;
   margin-left: auto; /* 水平居中 */
@@ -4560,8 +4567,6 @@ use.stop-animation {
   border: 0.3rem solid var(--color-grey); /* 外框加粗 */
 }
 .md table img {
-  min-height: 12rem;
-  max-height: 12rem;
   border: 0;
   padding: 0;
 }
