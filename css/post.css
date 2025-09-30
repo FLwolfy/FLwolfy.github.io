@@ -6177,8 +6177,8 @@ span.label {
   height: 100%;
   box-sizing: border-box;
   overflow: hidden;
-  margin-left: 0.75rem;
-  margin-right: 0.75rem;
+  margin-left: 0.3rem;
+  margin-right: 0.3rem;
 }
 .track-content .track-cats-container {
   margin-left: auto;
@@ -6190,15 +6190,6 @@ span.label {
 .track-content .track-cats-container .meta {
   white-space: nowrap; /* 不允许换行 */
   overflow: hidden; /* 超出隐藏 */
-}
-.track-content .track-cats-container .meta .item {
-  padding: 0;
-}
-.track-content .track-cats-container .meta .item::after {
-  content: none !important;
-}
-.track-content .track-cats-container .meta .item::before {
-  content: none !important;
 }
 .track-content .track-title {
   height: 2.25rem;
@@ -6240,12 +6231,6 @@ span.label {
   padding: 0;
   font-size: 0.75rem;
   line-height: 1.2rem;
-}
-.track-content .track-meta-container .meta .item::after {
-  content: none;
-}
-.track-content .track-meta-container .meta .item::before {
-  content: none;
 }
 .track .track-meta-html {
   display: none;
@@ -6318,7 +6303,7 @@ span.label {
   top: 35%; /* 垂直居中 */
   left: 50%; /* 水平居中 */
   transform: translate(-50%, -50%);
-  color: var(--color-orange);
+  color: var(--header-text-color);
   font-size: 2.5rem;
   line-height: 3.2rem;
   font-weight: bold;
@@ -6364,15 +6349,6 @@ span.label {
 .track-info-meta .meta .item {
   padding: 0;
   font-size: 0.75rem;
-}
-.track-info-meta .meta .item::after {
-  border: none;
-}
-.track-info-meta .meta .item::after {
-  content: none !important;
-}
-.track-info-meta .meta .item::before {
-  content: none !important;
 }
 .track-info-description {
   font-size: 1rem;
