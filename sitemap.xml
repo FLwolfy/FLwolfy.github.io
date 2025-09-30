@@ -38,6 +38,15 @@
   </url>
   
   <url>
+    <loc>https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/mtn/motion_100.motion3.json</loc>
+    
+    <lastmod>2025-09-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/mtn/motion_200.motion3.json</loc>
     
     <lastmod>2025-09-30</lastmod>
@@ -101,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/mtn/motion_100.motion3.json</loc>
+    <loc>https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/config.json</loc>
     
     <lastmod>2025-09-30</lastmod>
     
@@ -201,15 +210,6 @@
   
   <url>
     <loc>https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/exp/mtn_ex_060.exp3.json</loc>
-    
-    <lastmod>2025-09-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://flwolfy.github.io/live2d/resources/model/%E5%9C%86%E7%A5%9E/config.json</loc>
     
     <lastmod>2025-09-30</lastmod>
     
