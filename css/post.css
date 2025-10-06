@@ -5961,6 +5961,9 @@ span.label {
 .segments > .item:nth-child(even):hover .cover img {
   transform: scale(1.05) rotate(-1deg);
 }
+.collapse {
+  padding-top: 0 !important;
+}
 .collapse small {
   color: var(--grey-4);
   margin: auto 0.3125rem;
