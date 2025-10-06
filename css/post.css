@@ -5751,6 +5751,11 @@ span.label {
   margin: 0;
   white-space: normal;
   text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+/* 文字描边 */
+  -webkit-text-stroke: 0.4rem #000; /* 边框颜色和粗细 */
+  paint-order: stroke fill; /* 确保描边在文字外 */
 }
 .cards .item .cover::before {
   position: absolute;

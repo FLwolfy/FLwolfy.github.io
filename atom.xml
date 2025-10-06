@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://flwolfy.github.io</id>
+    <id>https://blog.flwolfy.xyz</id>
     <title>FLwolfy&#39;s Blog</title>
-    <subtitle>欢迎来到我的博客！</subtitle>
-    <icon>https://flwolfy.github.io/assets/favicon.ico</icon>
-    <link href="https://flwolfy.github.io" />
+    <subtitle>寄蜉蝣于天地 · 渺沧海之一粟</subtitle>
+    <icon>https://blog.flwolfy.xyz/assets/favicon.ico</icon>
+    <link href="https://blog.flwolfy.xyz" />
     <author>
       <name>FLwolfy</name>
     </author>
     <updated>2025-09-16T16:00:00.000Z</updated>
     <entry>
-        <id>https://flwolfy.github.io/2025/09/16/game/review/wothn-review/</id>
+        <id>https://blog.flwolfy.xyz/2025/09/16/game/review/wothn-review/</id>
         <title>《魔法使之夜》通关感想【更新中...】</title>
-        <link rel="alternate" href="https://flwolfy.github.io/2025/09/16/game/review/wothn-review/"/>
+        <link rel="alternate" href="https://blog.flwolfy.xyz/2025/09/16/game/review/wothn-review/"/>
         <content type="html">&lt;h1 id=&#34;阅读前须知&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#阅读前须知&#34;&gt;#&lt;/a&gt; 阅读前须知&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -25,16 +25,16 @@
 &lt;h2 id=&#34;后续&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后续&#34;&gt;#&lt;/a&gt; 后续&lt;/h2&gt;
 &lt;p&gt;正在更新中...&lt;/p&gt;
 </content>
-        <category term="游戏" scheme="https://flwolfy.github.io/categories/game/" />
-        <category term="观后感" scheme="https://flwolfy.github.io/categories/game/review/" />
-        <category term="型月" scheme="https://flwolfy.github.io/tags/type-moon/" />
-        <category term="杂谈" scheme="https://flwolfy.github.io/tags/misc/" />
+        <category term="游戏" scheme="https://blog.flwolfy.xyz/categories/game/" />
+        <category term="观后感" scheme="https://blog.flwolfy.xyz/categories/game/review/" />
+        <category term="型月" scheme="https://blog.flwolfy.xyz/tags/type-moon/" />
+        <category term="杂谈" scheme="https://blog.flwolfy.xyz/tags/misc/" />
         <updated>2025-09-16T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>https://flwolfy.github.io/2025/06/20/game/guide/lucario-guide/</id>
+        <id>https://blog.flwolfy.xyz/2025/06/20/game/guide/lucario-guide/</id>
         <title>路卡利欧全方位教程</title>
-        <link rel="alternate" href="https://flwolfy.github.io/2025/06/20/game/guide/lucario-guide/"/>
+        <link rel="alternate" href="https://blog.flwolfy.xyz/2025/06/20/game/guide/lucario-guide/"/>
         <content type="html">&lt;h1 id=&#34;前言和申明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#前言和申明&#34;&gt;#&lt;/a&gt; 前言和申明&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -270,17 +270,17 @@
 &lt;h2 id=&#34;后续&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后续&#34;&gt;#&lt;/a&gt; 后续&lt;/h2&gt;
 &lt;p&gt;这边路卡利欧的大部分攻击招式和帧数就算写完了。但这不代表路卡利欧的教学在此结束。后续将会持续更新包括但不限于：基础连段、进阶连段、板与受身择、立回思路、技巧练习等，敬请期待～&lt;/p&gt;
 </content>
-        <category term="游戏" scheme="https://flwolfy.github.io/categories/game/" />
-        <category term="攻略" scheme="https://flwolfy.github.io/categories/game/guide/" />
-        <category term="任斗" scheme="https://flwolfy.github.io/tags/ssbu/" />
-        <category term="宝可梦" scheme="https://flwolfy.github.io/tags/pokemon/" />
-        <category term="攻略" scheme="https://flwolfy.github.io/tags/tutorial/" />
+        <category term="游戏" scheme="https://blog.flwolfy.xyz/categories/game/" />
+        <category term="攻略" scheme="https://blog.flwolfy.xyz/categories/game/guide/" />
+        <category term="任斗" scheme="https://blog.flwolfy.xyz/tags/ssbu/" />
+        <category term="宝可梦" scheme="https://blog.flwolfy.xyz/tags/pokemon/" />
+        <category term="攻略" scheme="https://blog.flwolfy.xyz/tags/tutorial/" />
         <updated>2025-06-20T16:00:00.000Z</updated>
     </entry>
     <entry>
-        <id>https://flwolfy.github.io/2025/05/26/anime/pilgrimage/sg-visit/</id>
+        <id>https://blog.flwolfy.xyz/2025/05/26/anime/pilgrimage/sg-visit/</id>
         <title>《命运石之门》圣地巡礼</title>
-        <link rel="alternate" href="https://flwolfy.github.io/2025/05/26/anime/pilgrimage/sg-visit/"/>
+        <link rel="alternate" href="https://blog.flwolfy.xyz/2025/05/26/anime/pilgrimage/sg-visit/"/>
         <content type="html">&lt;h1 id=&#34;图片所有权声明&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#图片所有权声明&#34;&gt;#&lt;/a&gt; 图片所有权声明&lt;/h1&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
@@ -425,10 +425,10 @@
 &lt;p&gt;当然本次日本之行也不只去了秋叶原，池袋、东京塔、涉谷等知名景点也都去了，有机会再写文章分享吧（咕——，有生之年～）。&lt;/p&gt;
 &lt;p&gt;总结：好玩，下次还来！&lt;/p&gt;
 </content>
-        <category term="动漫" scheme="https://flwolfy.github.io/categories/anime/" />
-        <category term="圣地巡礼" scheme="https://flwolfy.github.io/categories/anime/pilgrimage/" />
-        <category term="旅游" scheme="https://flwolfy.github.io/tags/travel/" />
-        <category term="秋叶原" scheme="https://flwolfy.github.io/tags/akihabara/" />
+        <category term="动漫" scheme="https://blog.flwolfy.xyz/categories/anime/" />
+        <category term="圣地巡礼" scheme="https://blog.flwolfy.xyz/categories/anime/pilgrimage/" />
+        <category term="旅游" scheme="https://blog.flwolfy.xyz/tags/travel/" />
+        <category term="秋叶原" scheme="https://blog.flwolfy.xyz/tags/akihabara/" />
         <updated>2025-05-26T16:00:00.000Z</updated>
     </entry>
 </feed>
