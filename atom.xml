@@ -25,10 +25,10 @@
 &lt;h2 id=&#34;后续&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后续&#34;&gt;#&lt;/a&gt; 后续&lt;/h2&gt;
 &lt;p&gt;正在更新中...&lt;/p&gt;
 </content>
-        <category term="动漫" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/" />
-        <category term="观后感" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/%E8%A7%82%E5%90%8E%E6%84%9F/" />
-        <category term="型月" scheme="https://flwolfy.github.io/tags/%E5%9E%8B%E6%9C%88/" />
-        <category term="杂谈" scheme="https://flwolfy.github.io/tags/%E6%9D%82%E8%B0%88/" />
+        <category term="动漫" scheme="https://flwolfy.github.io/categories/anime/" />
+        <category term="观后感" scheme="https://flwolfy.github.io/categories/anime/review/" />
+        <category term="型月" scheme="https://flwolfy.github.io/tags/type-moon/" />
+        <category term="杂谈" scheme="https://flwolfy.github.io/tags/misc/" />
         <updated>2025-09-16T16:00:00.000Z</updated>
     </entry>
     <entry>
@@ -270,11 +270,11 @@
 &lt;h2 id=&#34;后续&#34;&gt;&lt;a class=&#34;anchor&#34; href=&#34;#后续&#34;&gt;#&lt;/a&gt; 后续&lt;/h2&gt;
 &lt;p&gt;这边路卡利欧的大部分攻击招式和帧数就算写完了。但这不代表路卡利欧的教学在此结束。后续将会持续更新包括但不限于：基础连段、进阶连段、板与受身择、立回思路、技巧练习等，敬请期待～&lt;/p&gt;
 </content>
-        <category term="游戏" scheme="https://flwolfy.github.io/categories/%E6%B8%B8%E6%88%8F/" />
-        <category term="攻略" scheme="https://flwolfy.github.io/categories/%E6%B8%B8%E6%88%8F/%E6%94%BB%E7%95%A5/" />
-        <category term="SSBU" scheme="https://flwolfy.github.io/tags/SSBU/" />
-        <category term="宝可梦" scheme="https://flwolfy.github.io/tags/%E5%AE%9D%E5%8F%AF%E6%A2%A6/" />
-        <category term="攻略" scheme="https://flwolfy.github.io/tags/%E6%94%BB%E7%95%A5/" />
+        <category term="游戏" scheme="https://flwolfy.github.io/categories/game/" />
+        <category term="攻略" scheme="https://flwolfy.github.io/categories/game/guide/" />
+        <category term="任斗" scheme="https://flwolfy.github.io/tags/ssbu/" />
+        <category term="宝可梦" scheme="https://flwolfy.github.io/tags/pokemon/" />
+        <category term="攻略" scheme="https://flwolfy.github.io/tags/tutorial/" />
         <updated>2025-06-20T16:00:00.000Z</updated>
     </entry>
     <entry>
@@ -425,10 +425,10 @@
 &lt;p&gt;当然本次日本之行也不只去了秋叶原，池袋、东京塔、涉谷等知名景点也都去了，有机会再写文章分享吧（咕——，有生之年～）。&lt;/p&gt;
 &lt;p&gt;总结：好玩，下次还来！&lt;/p&gt;
 </content>
-        <category term="动漫" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/" />
-        <category term="圣地巡礼" scheme="https://flwolfy.github.io/categories/%E5%8A%A8%E6%BC%AB/%E5%9C%A3%E5%9C%B0%E5%B7%A1%E7%A4%BC/" />
-        <category term="旅游" scheme="https://flwolfy.github.io/tags/%E6%97%85%E6%B8%B8/" />
-        <category term="秋叶原" scheme="https://flwolfy.github.io/tags/%E7%A7%8B%E5%8F%B6%E5%8E%9F/" />
+        <category term="动漫" scheme="https://flwolfy.github.io/categories/anime/" />
+        <category term="圣地巡礼" scheme="https://flwolfy.github.io/categories/anime/pilgrimage/" />
+        <category term="旅游" scheme="https://flwolfy.github.io/tags/travel/" />
+        <category term="秋叶原" scheme="https://flwolfy.github.io/tags/akihabara/" />
         <updated>2025-05-26T16:00:00.000Z</updated>
     </entry>
 </feed>
