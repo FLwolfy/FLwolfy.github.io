@@ -45,11 +45,12 @@ function binft(targetElement, content) {
   const noiseChars = 5;
   const colors = [
     "rgb(255,255,255)",
-    "rgba(239, 220, 255, 1)",
-    "rgba(245, 200, 255, 1)",
-    "rgba(255, 180, 190, 1)",
-    "rgba(255, 184, 160, 1)"
+    "rgb(220,220,255)",
+    "rgb(200,230,255)",
+    "rgb(180,255,255)",
+    "rgb(160,255,230)"
   ];
+
 
   const state = {
     text: "",
