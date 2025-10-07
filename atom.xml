@@ -6,7 +6,7 @@
   <link href="https://flwolfy.github.io/atom.xml" rel="self"/>
   
   <link href="https://flwolfy.github.io/"/>
-  <updated>2025-10-07T07:32:56.996Z</updated>
+  <updated>2025-10-07T07:38:32.993Z</updated>
   <id>https://flwolfy.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://flwolfy.github.io/2025/09/21/example/"/>
     <id>https://flwolfy.github.io/2025/09/21/example/</id>
     <published>2025-09-21T00:00:00.000Z</published>
-    <updated>2025-10-07T07:32:56.996Z</updated>
+    <updated>2025-10-07T07:38:32.993Z</updated>
     
     
     <summary type="html">简介测试～</summary>
@@ -44,7 +44,7 @@
     <link href="https://flwolfy.github.io/2025/06/15/home-page/"/>
     <id>https://flwolfy.github.io/2025/06/15/home-page/</id>
     <published>2025-06-15T00:00:00.000Z</published>
-    <updated>2025-10-07T07:32:56.996Z</updated>
+    <updated>2025-10-07T07:38:32.993Z</updated>
     
     <content type="html"><![CDATA[<section class="home-welcome" style="text-align: center; padding: 0 2rem;">  <h1 style="font-size: 2.8rem; font-weight: 900; color: #5FE9CB; margin-bottom: 0.5em; margin-top: 0;">    欢迎来到 FLwolfy 的旧博客模板  </h1>  <p style="font-size: 1.2rem; max-width: 50rem; margin: 0 auto 2.5em; color: #c0b6f2;">    这个是当前的主页样式，目前只有这一个主页 Post ，你可以通过添加更多的主页 Post 来让主页随机放出你的主页 Post  </p></section>]]></content>
     
